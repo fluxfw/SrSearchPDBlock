@@ -10,7 +10,8 @@ git clone git@git.studer-raimann.ch:ILIAS/Plugins/SrSearchPDBlock.git SrSearchPD
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ### Some screenshots
-TODO
+Search block on personal desktop:
+![Search block on personal desktop](./doc/screenshots/search_block.png)
 
 ### Dependencies
 * ILIAS 5.3
