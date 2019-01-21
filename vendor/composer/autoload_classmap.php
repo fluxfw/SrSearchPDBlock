@@ -68,6 +68,7 @@ return array(
     'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => $vendorDir . '/srag/dic/src/Version/Version.php',
     'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => $vendorDir . '/srag/dic/src/Version/VersionInterface.php',
     'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => $vendorDir . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Search\\SearchInputGUI' => $baseDir . '/src/Search/SearchInputGUI.php',
     'srag\\Plugins\\SrSearchPDBlock\\Utils\\SrSearchPDBlockTrait' => $baseDir . '/src/Utils/SrSearchPDBlockTrait.php',
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\AbstractPluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/AbstractPluginUninstallTrait.php',
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\AbstractRemovePluginDataConfirm' => $vendorDir . '/srag/removeplugindataconfirm/src/AbstractRemovePluginDataConfirm.php',
