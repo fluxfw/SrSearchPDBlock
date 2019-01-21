@@ -52,7 +52,7 @@ class SearchInputGUI extends ilBlockGUI {
 		$tpl->setVariable("TXT_PLACEHOLDER", self::plugin()->translate("placeholder", ilSrSearchPDBlockUIHookGUI::LANG_MODULE_SEARCH));
 		$tpl->setVariable("TXT_GO", self::plugin()->translate("go", ilSrSearchPDBlockUIHookGUI::LANG_MODULE_SEARCH));
 
-		//ilias/xyz/Services/Search/classes/class.ilMainMenuSearchGUI.php::getHTML
+		//Services/Search/classes/class.ilMainMenuSearchGUI.php::getHTML
 		$search_action = "ilias.php?baseClass=" . ilSearchController::class . "&cmd=post&rtoken=" . self::dic()->ctrl()->getRequestToken()
 			. "&fallbackCmd=remoteSearch";
 		$tpl->setVariable("ACTION", $search_action);
