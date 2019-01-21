@@ -27,8 +27,8 @@ Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/SrSearchPDBlock/tree/develop
-* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/PLX
-* Bug reports under https://jira.studer-raimann.ch/projects/PLX
+* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/PLPDSE
+* Bug reports under https://jira.studer-raimann.ch/projects/PLPDSE
 * For external users please send an email to support-custom1@studer-raimann.ch
 
 ### Development
