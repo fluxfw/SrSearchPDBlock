@@ -10,7 +10,8 @@ git clone git@git.studer-raimann.ch:ILIAS/Plugins/SrSearchPDBlock.git SrSearchPD
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ### Some screenshots
-TODO
+Search block on personal desktop:
+![Search block on personal desktop](./doc/screenshots/search_block.png)
 
 ### Dependencies
 * ILIAS 5.3
@@ -26,8 +27,8 @@ Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/SrSearchPDBlock/tree/develop
-* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/PLX
-* Bug reports under https://jira.studer-raimann.ch/projects/PLX
+* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/PLPDSE
+* Bug reports under https://jira.studer-raimann.ch/projects/PLPDSE
 * For external users please send an email to support-custom1@studer-raimann.ch
 
 ### Development
