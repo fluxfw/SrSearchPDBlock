@@ -16,7 +16,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI {
 	use DICTrait;
 	use SrSearchPDBlockTrait;
 	const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
-	const PERSONAL_DESKTOP_CENTER = "personal_desktop_center";
+	const PERSONAL_DESKTOP_INIT = "personal_desktop";
 	const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";
 	const PART_CENTER_RIGHT = "right_column";
 	const LANG_MODULE_SEARCH = "search";
@@ -24,7 +24,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI {
 	 * @var bool[]
 	 */
 	protected static $load = [
-		self::PERSONAL_DESKTOP_CENTER => false
+		self::PERSONAL_DESKTOP_INIT => false
 	];
 
 
@@ -39,10 +39,10 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI {
 		$a_comp, /*string*/
 		$a_part, $a_par = []): array {
 
-		if (!self::$load[self::PERSONAL_DESKTOP_CENTER]) {
+		if (!self::$load[self::PERSONAL_DESKTOP_INIT]) {
 			if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_CENTER_RIGHT) {
 
-				self::$load[self::PERSONAL_DESKTOP_CENTER] = true;
+				self::$load[self::PERSONAL_DESKTOP_INIT] = true;
 
 				return [
 					"mode" => ilUIHookPluginGUI::PREPEND,
