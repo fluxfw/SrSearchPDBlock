@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.0]
+- Supports each core language
+
 ## [1.0.1]
 - Fixes
 

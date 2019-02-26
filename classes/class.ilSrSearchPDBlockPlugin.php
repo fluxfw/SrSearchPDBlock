@@ -1,9 +1,8 @@
 <?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+use srag\DIC\SrSearchPDBlock\DICTrait;
 
-use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
-use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
+require_once __DIR__ . "/../vendor/autoload.php";
 
 /**
  * Class ilSrSearchPDBlockPlugin
@@ -12,12 +11,10 @@ use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
  */
 class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin {
 
-	use PluginUninstallTrait;
-	use SrSearchPDBlockTrait;
+	use DICTrait;
 	const PLUGIN_ID = "srsearchpd";
 	const PLUGIN_NAME = "SrSearchPDBlock";
 	const PLUGIN_CLASS_NAME = self::class;
-	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrSearchPDBlockRemoveDataConfirm::class;
 	/**
 	 * @var self|null
 	 */
@@ -49,13 +46,5 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin {
 	 */
 	public function getPluginName(): string {
 		return self::PLUGIN_NAME;
-	}
-
-
-	/**
-	 * @inheritdoc
-	 */
-	protected function deleteData()/*: void*/ {
-
 	}
 }
