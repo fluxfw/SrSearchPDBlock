@@ -27,5 +27,7 @@ return array(
     'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => $vendorDir . '/srag/dic/src/Version/Version.php',
     'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => $vendorDir . '/srag/dic/src/Version/VersionInterface.php',
     'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => $vendorDir . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
-    'srag\\Plugins\\SrSearchPDBlock\\Search\\SearchInputGUI' => $baseDir . '/src/Search/SearchInputGUI.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Block\\BaseSearchBlock' => $baseDir . '/src/Block/BaseSearchBlock.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Block\\SearchBlock53' => $baseDir . '/src/Block/SearchBlock53.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Block\\SearchBlock54' => $baseDir . '/src/Block/SearchBlock54.php',
 );

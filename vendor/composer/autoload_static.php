@@ -11,7 +11,7 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         array (
             'srag\\Plugins\\SrSearchPDBlock\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
+            'srag\\DIC\\SrSearchPDBlock\\' => 25,
         ),
     );
 
@@ -24,7 +24,7 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
@@ -52,7 +52,9 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Search\\SearchInputGUI' => __DIR__ . '/../..' . '/src/Search/SearchInputGUI.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Block\\BaseSearchBlock' => __DIR__ . '/../..' . '/src/Block/BaseSearchBlock.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Block\\SearchBlock53' => __DIR__ . '/../..' . '/src/Block/SearchBlock53.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Block\\SearchBlock54' => __DIR__ . '/../..' . '/src/Block/SearchBlock54.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -4,8 +4,8 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Exception\DICException;
-use srag\Plugins\SrSearchPDBlock\Search\SearchInputGUI;
-use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
+use srag\Plugins\SrSearchPDBlock\Block\SearchBlock53;
+use srag\Plugins\SrSearchPDBlock\Block\SearchBlock54;
 
 /**
  * Class ilSrSearchPDBlockUIHookGUI
@@ -49,7 +49,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI {
 
 				return [
 					"mode" => ilUIHookPluginGUI::PREPEND,
-					"html" => self::output()->getHTML(new SearchInputGUI())
+					"html" => self::output()->getHTML(self::version()->is54() ? new SearchBlock54() : new SearchBlock53())
 				];
 			}
 		}

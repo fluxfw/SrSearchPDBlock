@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrSearchPDBlock\Search;
+namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilBlockGUI;
 use ilSearchController;
@@ -10,20 +10,20 @@ use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Exception\DICException;
 
 /**
- * Class SearchInputGUI
+ * Class BaseSearchBlock
  *
- * @package srag\Plugins\SrSearchPDBlock\Search
+ * @package srag\Plugins\SrSearchPDBlock\Block
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class SearchInputGUI extends ilBlockGUI {
+abstract class BaseSearchBlock extends ilBlockGUI {
 
 	use DICTrait;
 	const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
 
 
 	/**
-	 * SearchInputGUI constructor
+	 * BaseSearchBlock constructor
 	 *
 	 * @throws DICException
 	 */
@@ -63,21 +63,5 @@ class SearchInputGUI extends ilBlockGUI {
 			->txt("search"), "")));
 
 		$this->setDataSection(self::output()->getHTML($tpl));
-	}
-
-
-	/**
-	 * @return string
-	 */
-	public static function getBlockType(): string {
-		return ilSrSearchPDBlockPlugin::PLUGIN_ID;
-	}
-
-
-	/**
-	 * @return bool
-	 */
-	public static function isRepositoryObject(): bool {
-		return false;
 	}
 }
