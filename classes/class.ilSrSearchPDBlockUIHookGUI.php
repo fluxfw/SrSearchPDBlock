@@ -48,7 +48,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI {
 				self::$load[self::PERSONAL_DESKTOP_INIT] = true;
 
 				return [
-					"mode" => ilUIHookPluginGUI::PREPEND,
+					"mode" => self::PREPEND,
 					"html" => self::output()->getHTML(self::version()->is54() ? new SearchBlock54() : new SearchBlock53())
 				];
 			}
