@@ -5,7 +5,7 @@ namespace srag\Plugins\SrSearchPDBlock\Block;
 use ilSrSearchPDBlockPlugin;
 
 /**
- * Class SearchInputGUI53
+ * Class SearchBlock53
  *
  * @package srag\Plugins\SrSearchPDBlock\Block
  *
