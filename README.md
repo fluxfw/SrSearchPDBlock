@@ -13,14 +13,9 @@ Update, activate and config the plugin in the ILIAS Plugin Administration
 Search block on personal desktop:
 ![Search block on personal desktop](./doc/screenshots/search_block.png)
 
-### Dependencies
+### Requirements
 * ILIAS 5.3 or ILIAS 5.4
 * PHP >=7.0
-* [composer](https://getcomposer.org)
-* [srag/dic](https://packagist.org/packages/srag/dic)
-* [srag/librariesnamespacechanger](https://packagist.org/packages/srag/librariesnamespacechanger)
-
-Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests
