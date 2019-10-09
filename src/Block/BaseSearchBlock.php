@@ -3,9 +3,8 @@
 namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilBlockGUI;
-use ilSearchController;
 use ilSrSearchPDBlockPlugin;
-use ilTemplateException;
+use ilTemplate;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Exception\DICException;
 
@@ -16,52 +15,65 @@ use srag\DIC\SrSearchPDBlock\Exception\DICException;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-abstract class BaseSearchBlock extends ilBlockGUI {
+abstract class BaseSearchBlock extends ilBlockGUI
+{
 
-	use DICTrait;
-	const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
-
-
-	/**
-	 * BaseSearchBlock constructor
-	 *
-	 * @throws DICException
-	 */
-	public function __construct() {
-		parent::__construct();
-
-		$this->initBlock();
-	}
+    use DICTrait;
+    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
+    /**
+     * @var string
+     *
+     * @abstract
+     */
+    const LANG_MODULE = "";
 
 
-	/**
-	 * @throws DICException
-	 */
-	protected function initBlock()/*: void*/ {
-		self::dic()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
+    /**
+     * BaseSearchBlock constructor
+     *
+     * @throws DICException
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->setTitle(self::dic()->language()->txt("search"));
-	}
+        $this->initBlock();
+    }
 
 
-	/**
-	 * @throws DICException
-	 * @throws ilTemplateException
-	 */
-	public function fillDataSection()/*: void*/ {
-		$tpl = self::plugin()->template("search_input.html");
+    /**
+     *
+     */
+    protected function initBlock()/*: void*/
+    {
+        self::dic()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
 
-		$tpl->setVariable("TXT_PLACEHOLDER", self::dic()->language()->txt("search") . " ...");
-		$tpl->setVariable("TXT_GO", self::dic()->language()->txt("go"));
+        $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+    }
 
-		//Services/Search/classes/class.ilMainMenuSearchGUI.php::getHTML
-		$search_action = "ilias.php?baseClass=" . ilSearchController::class . "&cmd=post&rtoken=" . self::dic()->ctrl()->getRequestToken()
-			. "&fallbackCmd=remoteSearch";
-		$tpl->setVariable("ACTION", $search_action);
 
-		$tpl->setVariable("BUTTON", self::output()->getHTML(self::dic()->ui()->factory()->button()->standard(self::dic()->language()
-			->txt("search"), "")));
+    /**
+     *
+     */
+    public function fillDataSection()/*: void*/
+    {
+        $this->setDataSection(self::output()->getHTML($this->fillTemplate($this->getTemplate())));
+    }
 
-		$this->setDataSection(self::output()->getHTML($tpl));
-	}
+
+    /**
+     * @return ilTemplate
+     */
+    protected function getTemplate() : ilTemplate
+    {
+        return self::plugin()->template(static::LANG_MODULE . ".html");
+    }
+
+
+    /**
+     * @param ilTemplate $tpl
+     *
+     * @return ilTemplate
+     */
+    protected abstract function fillTemplate(ilTemplate $tpl) : ilTemplate;
 }
