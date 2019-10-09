@@ -1,23 +1,120 @@
 [
     {
-        "name": "srag/dic",
-        "version": "v0.15.4",
-        "version_normalized": "0.15.4.0",
+        "name": "srag/activerecordconfig",
+        "version": "v0.16.3",
+        "version_normalized": "0.16.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/studer-raimann/DIC.git",
-            "reference": "9f90f54f36a00a793fc08a7916dfdb06ebe3a76c"
+            "url": "https://github.com/studer-raimann/ActiveRecordConfig.git",
+            "reference": "e9fdbeff6e2b2a05aca25d03e625ae9de98ea9ed"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/9f90f54f36a00a793fc08a7916dfdb06ebe3a76c",
-            "reference": "9f90f54f36a00a793fc08a7916dfdb06ebe3a76c",
+            "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/e9fdbeff6e2b2a05aca25d03e625ae9de98ea9ed",
+            "reference": "e9fdbeff6e2b2a05aca25d03e625ae9de98ea9ed",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.6"
+            "php": ">=5.6",
+            "srag/custominputguis": ">=0.1.0",
+            "srag/dic": ">=0.1.0"
         },
-        "time": "2019-03-26T13:15:41+00:00",
+        "time": "2019-09-03T08:14:04+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "srag\\ActiveRecordConfig\\SrSearchPDBlock\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-only"
+        ],
+        "authors": [
+            {
+                "name": "studer + raimann ag - Team Custom 1",
+                "email": "support-custom1@studer-raimann.ch",
+                "homepage": "https://studer-raimann.ch",
+                "role": "Developer"
+            }
+        ],
+        "description": "Simple ActiveRecord config for ILIAS plugins",
+        "homepage": "https://github.com/studer-raimann/ActiveRecordConfig",
+        "keywords": [
+            "ILIAS",
+            "activerecord",
+            "config"
+        ]
+    },
+    {
+        "name": "srag/custominputguis",
+        "version": "v0.23.5",
+        "version_normalized": "0.23.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
+            "reference": "930392409528493163c4ea6affc55feb0c24fb6a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/930392409528493163c4ea6affc55feb0c24fb6a",
+            "reference": "930392409528493163c4ea6affc55feb0c24fb6a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6",
+            "srag/dic": ">=0.1.0"
+        },
+        "time": "2019-09-25T11:33:03+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "srag\\CustomInputGUIs\\SrSearchPDBlock\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-only"
+        ],
+        "authors": [
+            {
+                "name": "studer + raimann ag - Team Custom 1",
+                "email": "support-custom1@studer-raimann.ch",
+                "homepage": "https://studer-raimann.ch",
+                "role": "Developer"
+            }
+        ],
+        "description": "Custom Input-GUI's",
+        "homepage": "https://github.com/studer-raimann/CustomInputGUIs",
+        "keywords": [
+            "ILIAS",
+            "PropertyForm",
+            "gui",
+            "input",
+            "table"
+        ]
+    },
+    {
+        "name": "srag/dic",
+        "version": "v0.18.4",
+        "version_normalized": "0.18.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/studer-raimann/DIC.git",
+            "reference": "f3a3877e52e571f794e54c96d4413de20b274472"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/studer-raimann/DIC/zipball/f3a3877e52e571f794e54c96d4413de20b274472",
+            "reference": "f3a3877e52e571f794e54c96d4413de20b274472",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "time": "2019-07-05T09:55:53+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -48,23 +145,23 @@
     },
     {
         "name": "srag/librariesnamespacechanger",
-        "version": "v0.5.2",
-        "version_normalized": "0.5.2.0",
+        "version": "v0.6.13",
+        "version_normalized": "0.6.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/studer-raimann/LibrariesNamespaceChanger.git",
-            "reference": "4db267d97b5768d31429c14acde288181bfa4928"
+            "reference": "b90172668c936568dc0b6a992a7ac046b3fc5546"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/studer-raimann/LibrariesNamespaceChanger/zipball/4db267d97b5768d31429c14acde288181bfa4928",
-            "reference": "4db267d97b5768d31429c14acde288181bfa4928",
+            "url": "https://api.github.com/repos/studer-raimann/LibrariesNamespaceChanger/zipball/b90172668c936568dc0b6a992a7ac046b3fc5546",
+            "reference": "b90172668c936568dc0b6a992a7ac046b3fc5546",
             "shasum": ""
         },
         "require": {
             "php": ">=5.6"
         },
-        "time": "2019-03-19T14:25:06+00:00",
+        "time": "2019-09-19T08:53:12+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -89,6 +186,55 @@
         "keywords": [
             "ILIAS",
             "libraries"
+        ]
+    },
+    {
+        "name": "srag/removeplugindataconfirm",
+        "version": "v0.4.1",
+        "version_normalized": "0.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/studer-raimann/RemovePluginDataConfirm.git",
+            "reference": "fc1f1828c05ac2548d3b4022d53422cf1335ffc2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/studer-raimann/RemovePluginDataConfirm/zipball/fc1f1828c05ac2548d3b4022d53422cf1335ffc2",
+            "reference": "fc1f1828c05ac2548d3b4022d53422cf1335ffc2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6",
+            "srag/dic": ">=0.1.0"
+        },
+        "time": "2019-03-26T13:17:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-only"
+        ],
+        "authors": [
+            {
+                "name": "studer + raimann ag - Team Custom 1",
+                "email": "support-custom1@studer-raimann.ch",
+                "homepage": "https://studer-raimann.ch",
+                "role": "Developer"
+            }
+        ],
+        "description": "Demand if plugin data should be removed on uninstall",
+        "homepage": "https://github.com/studer-raimann/RemovePluginDataConfirm",
+        "keywords": [
+            "ILIAS",
+            "confirm",
+            "data",
+            "plugin",
+            "uninstall"
         ]
     }
 ]

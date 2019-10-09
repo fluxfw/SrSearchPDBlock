@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0]
+- Current page search
+- Show on container objects
+- Config
+
 ## [1.1.1]
 - Supports ILIAS 5.4
 

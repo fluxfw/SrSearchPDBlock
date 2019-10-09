@@ -1,6 +1,8 @@
 <?php
 
-use srag\DIC\SrSearchPDBlock\DICTrait;
+use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
+use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
@@ -12,10 +14,11 @@ require_once __DIR__ . "/../vendor/autoload.php";
 class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 {
 
-    use DICTrait;
+    use PluginUninstallTrait;
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
     const PLUGIN_CLASS_NAME = self::class;
+    const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrSearchPDBlockRemoveDataConfirm::class;
     /**
      * @var self|null
      */
@@ -50,5 +53,26 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function updateLanguages($a_lang_keys = null)
+    {
+        parent::updateLanguages($a_lang_keys);
+
+        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
+            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function deleteData()/*: void*/
+    {
+        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
     }
 }
