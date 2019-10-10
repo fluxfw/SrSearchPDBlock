@@ -27,36 +27,45 @@ il.SrSearchPDBlock = {
      *
      */
     onInput: function () {
-        const input = this.field.val().toLowerCase();
-
-        const words = input.split(/\s/).map(word => word.trim()).filter(word => (word.length > 0));
+        const searchWords = this.parseWords(this.field.val());
 
         $(".ilObjListRow").each(function (i, el) {
-            this.testObject(words, el)
+            this.testObject(searchWords, el)
         }.bind(this));
     },
 
     /**
-     * @param {Array} words
+     * @param {string} text
+     *
+     * @returns {string[]}
+     */
+    parseWords: function (text) {
+        return text.toLowerCase().split(/\s/).map(word => word.trim()).filter(word => (word.length > 0));
+    },
+
+    /**
+     * @param {Array} searchWords
      * @param {HTMLElement} el
      */
-    testObject: function (words, el) {
-        const text = el.innerText.toLowerCase();
+    testObject: function (searchWords, el) {
+        const textWords = this.parseWords(el.innerText);
 
         let match;
 
-        console.log(words);
+        console.log(searchWords);
 
-        if (words.length > 0) {
+        if (searchWords.length > 0) {
             switch (this.operator) {
                 // AND
                 case 1:
                     match = true;
 
-                    for (const word of words) {
-                        if (text.indexOf(word) === -1) {
-                            match = false;
-                            break;
+                    for (const textWord of textWords) {
+                        for (const searchWord of searchWords) {
+                            if (textWord.indexOf(searchWord) === -1) {
+                                match = false;
+                                break;
+                            }
                         }
                     }
                     break;
@@ -65,10 +74,12 @@ il.SrSearchPDBlock = {
                 case 2:
                     match = false;
 
-                    for (const word of words) {
-                        if (text.indexOf(word) !== -1) {
-                            match = true;
-                            break;
+                    for (const textWord of textWords) {
+                        for (const searchWord of searchWords) {
+                            if (textWord.indexOf(searchWord) !== -1) {
+                                match = true;
+                                break;
+                            }
                         }
                     }
                     break;
