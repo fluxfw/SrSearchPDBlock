@@ -27,7 +27,7 @@ il.SrSearchPDBlock = {
      *
      */
     onInput: function () {
-        const searchWords = this.parseWords(el.innerText);
+        const searchWords = this.parseWords(this.field.val());
 
         $(".ilObjListRow").each(this.testObject.bind(this, searchWords));
     },
@@ -51,7 +51,7 @@ il.SrSearchPDBlock = {
      * @param {HTMLElement} el
      */
     testObject: function (searchWords, i, el) {
-        const textWords = this.parseWords($(el).text());
+        const textWords = this.parseWords(el.innerText);
 
         let match;
 
