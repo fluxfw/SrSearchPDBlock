@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.1]
+- Optimize current page search (Filter object text by words)
+
 ## [2.0.0]
 - Current page search
 - Show on container objects

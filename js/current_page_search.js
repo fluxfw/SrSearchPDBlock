@@ -27,50 +27,42 @@ il.SrSearchPDBlock = {
      *
      */
     onInput: function () {
-        const input = this.field.val().toLowerCase();
+        const searchWords = this.parseWords(el.innerText);
 
-        const words = input.split(/\s/).map(word => word.trim()).filter(word => (word.length > 0));
-
-        $(".ilObjListRow").each(function (i, el) {
-            this.testObject(words, el)
-        }.bind(this));
+        $(".ilObjListRow").each(this.testObject.bind(this, searchWords));
     },
 
     /**
-     * @param {Array} words
+     * @param {string} text
+     *
+     * @returns {string[]}
+     */
+    parseWords: function (text) {
+        return text.toLowerCase().split(/\s/).map(function (word) {
+            return word.trim();
+        }).filter(function (word) {
+            return (word.length > 0);
+        });
+    },
+
+    /**
+     * @param {string[]} searchWords
+     * @param {number} i
      * @param {HTMLElement} el
      */
-    testObject: function (words, el) {
-        const text = el.innerText.toLowerCase();
+    testObject: function (searchWords, i, el) {
+        const textWords = this.parseWords($(el).text());
 
         let match;
 
-        console.log(words);
-
-        if (words.length > 0) {
+        if (searchWords.length > 0) {
             switch (this.operator) {
-                // AND
                 case 1:
-                    match = true;
-
-                    for (const word of words) {
-                        if (text.indexOf(word) === -1) {
-                            match = false;
-                            break;
-                        }
-                    }
+                    match = this.testObjectAND(searchWords, textWords);
                     break;
 
-                // OR
                 case 2:
-                    match = false;
-
-                    for (const word of words) {
-                        if (text.indexOf(word) !== -1) {
-                            match = true;
-                            break;
-                        }
-                    }
+                    match = this.testObjectOR(searchWords, textWords);
                     break;
 
                 default:
@@ -82,5 +74,33 @@ il.SrSearchPDBlock = {
         }
 
         el.style.display = (match ? "" : "none");
+    },
+
+    /**
+     * @param {string[]} searchWords
+     * @param {string[]} textWords
+     *
+     * @returns {boolean}
+     */
+    testObjectAND: function (searchWords, textWords) {
+        return searchWords.every(function (searchWord) {
+            return textWords.some(function (textWord) {
+                return (textWord.indexOf(searchWord) !== -1);
+            });
+        });
+    },
+
+    /**
+     * @param {string[]} searchWords
+     * @param {string[]} textWords
+     *
+     * @returns {boolean}
+     */
+    testObjectOR: function (searchWords, textWords) {
+        return searchWords.some(function (searchWord) {
+            return textWords.some(function (textWord) {
+                return (textWord.indexOf(searchWord) !== -1);
+            });
+        });
     }
 };
