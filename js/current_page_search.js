@@ -47,11 +47,10 @@ il.SrSearchPDBlock = {
 
     /**
      * @param {string[]} searchWords
-     * @param {number} i
      * @param {HTMLElement} el
      */
-    testObject: function (searchWords, i, el) {
-        const textWords = this.parseWords($(el).text());
+    testObject: function (searchWords, el) {
+        const textWords = this.parseWords(el.innerText);
 
         let match;
 
