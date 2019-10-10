@@ -29,9 +29,7 @@ il.SrSearchPDBlock = {
     onInput: function () {
         const searchWords = this.parseWords(this.field.val());
 
-        $(".ilObjListRow").each(function (i, el) {
-            this.testObject(searchWords, el)
-        }.bind(this));
+        $(".ilObjListRow").each(this.testObject.bind(this, searchWords));
     },
 
     /**
@@ -44,44 +42,23 @@ il.SrSearchPDBlock = {
     },
 
     /**
-     * @param {Array} searchWords
+     * @param {string[]} searchWords
+     * @param {number} i
      * @param {HTMLElement} el
      */
-    testObject: function (searchWords, el) {
-        const textWords = this.parseWords(el.innerText);
+    testObject: function (searchWords, i, el) {
+        const textWords = this.parseWords($(el).text());
 
         let match;
 
-        console.log(searchWords);
-
         if (searchWords.length > 0) {
             switch (this.operator) {
-                // AND
                 case 1:
-                    match = true;
-
-                    for (const textWord of textWords) {
-                        for (const searchWord of searchWords) {
-                            if (textWord.indexOf(searchWord) === -1) {
-                                match = false;
-                                break;
-                            }
-                        }
-                    }
+                    match = this.testObjectAND(searchWords, textWords);
                     break;
 
-                // OR
                 case 2:
-                    match = false;
-
-                    for (const textWord of textWords) {
-                        for (const searchWord of searchWords) {
-                            if (textWord.indexOf(searchWord) !== -1) {
-                                match = true;
-                                break;
-                            }
-                        }
-                    }
+                    match = this.testObjectOR(searchWords, textWords);
                     break;
 
                 default:
@@ -93,5 +70,47 @@ il.SrSearchPDBlock = {
         }
 
         el.style.display = (match ? "" : "none");
+    },
+
+    /**
+     * @param {string[]} searchWords
+     * @param {string[]} textWords
+     *
+     * @returns {boolean}
+     */
+    testObjectAND: function (searchWords, textWords) {
+        let match = true;
+
+        for (const textWord of textWords) {
+            for (const searchWord of searchWords) {
+                if (textWord.indexOf(searchWord) === -1) {
+                    match = false;
+                    break;
+                }
+            }
+        }
+
+        return match;
+    },
+
+    /**
+     * @param {string[]} searchWords
+     * @param {string[]} textWords
+     *
+     * @returns {boolean}
+     */
+    testObjectOR: function (searchWords, textWords) {
+        let match = false;
+
+        for (const textWord of textWords) {
+            for (const searchWord of searchWords) {
+                if (textWord.indexOf(searchWord) !== -1) {
+                    match = true;
+                    break;
+                }
+            }
+        }
+
+        return match;
     }
 };
