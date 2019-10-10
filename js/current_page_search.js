@@ -27,7 +27,7 @@ il.SrSearchPDBlock = {
      *
      */
     onInput: function () {
-        const searchWords = this.parseWords(this.field.val());
+        const searchWords = this.parseWords(el.innerText);
 
         $(".ilObjListRow").each(this.testObject.bind(this, searchWords));
     },
@@ -38,7 +38,11 @@ il.SrSearchPDBlock = {
      * @returns {string[]}
      */
     parseWords: function (text) {
-        return text.toLowerCase().split(/\s/).map(word => word.trim()).filter(word => (word.length > 0));
+        return text.toLowerCase().split(/\s/).map(function (word) {
+            return word.trim();
+        }).filter(function (word) {
+            return (word.length > 0);
+        });
     },
 
     /**
@@ -79,18 +83,11 @@ il.SrSearchPDBlock = {
      * @returns {boolean}
      */
     testObjectAND: function (searchWords, textWords) {
-        let match = true;
-
-        for (const textWord of textWords) {
-            for (const searchWord of searchWords) {
-                if (textWord.indexOf(searchWord) === -1) {
-                    match = false;
-                    break;
-                }
-            }
-        }
-
-        return match;
+        return searchWords.every(function (searchWord) {
+            return textWords.some(function (textWord) {
+                return (textWord.indexOf(searchWord) !== -1);
+            });
+        });
     },
 
     /**
@@ -100,17 +97,10 @@ il.SrSearchPDBlock = {
      * @returns {boolean}
      */
     testObjectOR: function (searchWords, textWords) {
-        let match = false;
-
-        for (const textWord of textWords) {
-            for (const searchWord of searchWords) {
-                if (textWord.indexOf(searchWord) !== -1) {
-                    match = true;
-                    break;
-                }
-            }
-        }
-
-        return match;
+        return searchWords.some(function (searchWord) {
+            return textWords.some(function (textWord) {
+                return (textWord.indexOf(searchWord) !== -1);
+            });
+        });
     }
 };
