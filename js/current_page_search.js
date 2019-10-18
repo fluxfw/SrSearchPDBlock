@@ -29,7 +29,7 @@ il.SrSearchPDBlock = {
     onInput: function () {
         const searchWords = this.parseWords(this.field.val());
 
-        $(".ilObjListRow").each(this.testObject.bind(this, searchWords));
+        $(".ilObjListRow, .il-card, .tile").each(this.testObject.bind(this, searchWords));
     },
 
     /**
