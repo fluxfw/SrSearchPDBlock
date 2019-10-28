@@ -51,6 +51,8 @@ il.SrSearchPDBlock = {
      * @param {HTMLElement} el
      */
     testObject: function (searchWords, i, el) {
+        el.style.display =  ""; // Show it before because `innerText` seems to be buggy if hidden
+
         const textWords = this.parseWords(el.innerText);
 
         let match;
