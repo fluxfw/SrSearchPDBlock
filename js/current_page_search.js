@@ -29,7 +29,7 @@ il.SrSearchPDBlock = {
     onInput: function () {
         const searchWords = this.parseWords(this.field.val());
 
-        $(".ilContainerBlockHeader, .ilContainerListItemCB, .ilContainerListFooter, .ilToolbar, .ilNewObjectSelector").css("display", (searchWords.length > 0 ? "none" : ""));
+        $(".ilContainerBlockHeader, .ilPDBlockSubHeader, .ilContainerListItemCB, .ilContainerListFooter, .ilToolbar, .ilNewObjectSelector").css("display", (searchWords.length > 0 ? "none" : ""));
 
         $(".ilObjListRow, .il-card, .tile").each(this.testObject.bind(this, searchWords));
     },
