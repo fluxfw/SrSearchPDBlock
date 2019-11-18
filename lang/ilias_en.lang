@@ -8,7 +8,7 @@ config_personal_desktop#:#Personal desktop
 config_save#:#Save
 config_show#:#Show %s
 current_page_search_placeholder#:#Search ...
-current_page_search_title#:#Current page search
+current_page_search_title#:#Search current page
 global_search_go#:#Go
 global_search_placeholder#:#Search ...
-global_search_title#:#Global search
+global_search_title#:#Search global

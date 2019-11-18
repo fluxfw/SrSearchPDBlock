@@ -29,6 +29,8 @@ il.SrSearchPDBlock = {
     onInput: function () {
         const searchWords = this.parseWords(this.field.val());
 
+        $(".ilContainerBlockHeader, .ilContainerListItemCB, .ilContainerListFooter, .ilToolbar, .ilNewObjectSelector").css("display", (searchWords.length > 0 ? "none" : ""));
+
         $(".ilObjListRow, .il-card, .tile").each(this.testObject.bind(this, searchWords));
     },
 
@@ -51,7 +53,7 @@ il.SrSearchPDBlock = {
      * @param {HTMLElement} el
      */
     testObject: function (searchWords, i, el) {
-        el.style.display =  ""; // Show it before because `innerText` seems to be buggy if hidden
+        el.style.display = ""; // Show it before because `innerText` seems to be buggy if hidden
 
         const textWords = this.parseWords(el.innerText);
 
