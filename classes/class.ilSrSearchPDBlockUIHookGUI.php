@@ -19,7 +19,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const COMPONENT_CONTAINER = "Services/Container";
     const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";
-    const PART_CENTER_RIGHT = "right_column";
+    const PART_RIGHT_COLUMN = "right_column";
 
 
     /**
@@ -35,14 +35,14 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
         $a_par = []
     ) : array {
 
-        if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_CENTER_RIGHT) {
+        if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
                 "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP)
             ];
         }
 
-        if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_CENTER_RIGHT) {
+        if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
                 "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS)

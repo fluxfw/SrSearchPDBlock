@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.4]
+- Hide some elements on current page search
+
 ## [2.0.3]
 - Fix
 

@@ -8,7 +8,7 @@ config_personal_desktop#:#Persönlicher Schreibtisch
 config_save#:#Speichern
 config_show#:#%s anzeigen
 current_page_search_placeholder#:#Suche ...
-current_page_search_title#:#Aktuelle Seite-Suche
+current_page_search_title#:#Aktuelle Seite durchsuchen
 global_search_go#:#Los
 global_search_placeholder#:#Suche ...
-global_search_title#:#Globale Suche
+global_search_title#:#Global durchsuchen
