@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.5]
+- Fix wrong db table (Conflict with `SrLearningProgressPDBlock`)
+
 ## [2.0.4]
 - Hide some elements on current page search
 
