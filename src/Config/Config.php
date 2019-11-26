@@ -15,7 +15,13 @@ use srag\ActiveRecordConfig\SrSearchPDBlock\ActiveRecordConfig;
 class Config extends ActiveRecordConfig
 {
 
-    const TABLE_NAME = "ui_uihk_srlppd_config";
+    const TABLE_NAME = "srsearchpd_config";
+    /**
+     * @var string
+     *
+     * @deprecated
+     */
+    const TABLE_NAME_WRONG = "ui_uihk_srlppd_config";
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP = "show_global_search_personal_desktop";
     const KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS = "show_global_search_container_objects";
