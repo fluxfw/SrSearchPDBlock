@@ -31,7 +31,7 @@ il.SrSearchPDBlock = {
 
         $(".ilContainerBlockHeader, .ilPDBlockSubHeader, .ilContainerListItemCB, .ilContainerListFooter, .ilToolbar, .ilNewObjectSelector").css("display", (searchWords.length > 0 ? "none" : ""));
 
-        $(".ilObjListRow, .il-card, .tile").each(this.testObject.bind(this, searchWords));
+        $(".ilObjListRow, .il-card, .tile, .il-item").each(this.testObject.bind(this, searchWords));
     },
 
     /**
