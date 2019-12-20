@@ -1,7 +1,7 @@
 # Changelog
 
 ## [2.0.6]
-- Fix
+- Some improvments
 
 ## [2.0.5]
 - Fix wrong db table (Conflict with `SrLearningProgressPDBlock`)
