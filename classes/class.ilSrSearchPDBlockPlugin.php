@@ -18,7 +18,6 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
     const PLUGIN_CLASS_NAME = self::class;
-    const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = SrSearchPDBlockRemoveDataConfirm::class;
     /**
      * @var self|null
      */
