@@ -23,17 +23,10 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
 
 
     /**
-     * @param string $a_comp
-     * @param string $a_part
-     * @param array  $a_par
-     *
-     * @return array
+     * @inheritDoc
      */
-    public function getHTML(/*string*/
-        $a_comp, /*string*/
-        $a_part,
-        $a_par = []
-    ) : array {
+    public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
+    {
 
         if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
             return [
