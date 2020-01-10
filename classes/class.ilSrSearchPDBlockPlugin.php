@@ -68,7 +68,7 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {

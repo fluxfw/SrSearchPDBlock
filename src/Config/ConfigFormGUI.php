@@ -6,8 +6,9 @@ use ilCheckboxInputGUI;
 use ilFormSectionHeaderGUI;
 use ilRadioGroupInputGUI;
 use ilRadioOption;
+use ilSrSearchPDBlockConfigGUI;
 use ilSrSearchPDBlockPlugin;
-use srag\ActiveRecordConfig\SrSearchPDBlock\ActiveRecordConfigFormGUI;
+use srag\CustomInputGUIs\SrSearchPDBlock\PropertyFormGUI\ConfigPropertyFormGUI;
 use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\BaseCurrentPageSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
 
@@ -18,19 +19,31 @@ use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ActiveRecordConfigFormGUI
+class ConfigFormGUI extends ConfigPropertyFormGUI
 {
 
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const CONFIG_CLASS_NAME = Config::class;
+    const LANG_MODULE = ilSrSearchPDBlockConfigGUI::LANG_MODULE;
+
+
+    /**
+     * ConfigFormGUI constructor
+     *
+     * @param ilSrSearchPDBlockConfigGUI $parent
+     */
+    public function __construct(ilSrSearchPDBlockConfigGUI $parent)
+    {
+        parent::__construct($parent);
+    }
 
 
     /**
      * @inheritDoc
      */
-    protected function initTitle()
+    protected function initCommands()/*: void*/
     {
-        $this->setTitle("");
+        $this->addCommandButton(ilSrSearchPDBlockConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 
@@ -88,5 +101,23 @@ class ConfigFormGUI extends ActiveRecordConfigFormGUI
                 "setTitle"              => self::plugin()->translate("operator", self::LANG_MODULE)
             ]
         ];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function initId()/*: void*/
+    {
+
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function initTitle()/*: void*/
+    {
+
     }
 }
