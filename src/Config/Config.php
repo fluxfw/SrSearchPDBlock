@@ -4,6 +4,7 @@ namespace srag\Plugins\SrSearchPDBlock\Config;
 
 use ilSrSearchPDBlockPlugin;
 use srag\ActiveRecordConfig\SrSearchPDBlock\ActiveRecordConfig;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class Config
@@ -15,6 +16,7 @@ use srag\ActiveRecordConfig\SrSearchPDBlock\ActiveRecordConfig;
 class Config extends ActiveRecordConfig
 {
 
+    use SrSearchPDBlockTrait;
     const TABLE_NAME = "srsearchpd_config";
     /**
      * @var string

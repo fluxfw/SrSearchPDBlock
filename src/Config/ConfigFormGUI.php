@@ -11,6 +11,7 @@ use ilSrSearchPDBlockPlugin;
 use srag\CustomInputGUIs\SrSearchPDBlock\PropertyFormGUI\ConfigPropertyFormGUI;
 use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\BaseCurrentPageSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class ConfigFormGUI
@@ -22,6 +23,7 @@ use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
 class ConfigFormGUI extends ConfigPropertyFormGUI
 {
 
+    use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const CONFIG_CLASS_NAME = Config::class;
     const LANG_MODULE = ilSrSearchPDBlockConfigGUI::LANG_MODULE;

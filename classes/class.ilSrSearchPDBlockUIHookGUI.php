@@ -6,6 +6,7 @@ use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock5
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock53;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock54;
 use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class ilSrSearchPDBlockUIHookGUI
@@ -16,6 +17,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
 {
 
     use DICTrait;
+    use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const COMPONENT_CONTAINER = "Services/Container";
     const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";

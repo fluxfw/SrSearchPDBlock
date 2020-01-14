@@ -113,6 +113,8 @@ return array(
     'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock54' => $baseDir . '/src/Block/GlobalSearch/GlobalSearchBlock54.php',
     'srag\\Plugins\\SrSearchPDBlock\\Config\\Config' => $baseDir . '/src/Config/Config.php',
     'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigFormGUI' => $baseDir . '/src/Config/ConfigFormGUI.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Repository' => $baseDir . '/src/Repository.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Utils\\SrSearchPDBlockTrait' => $baseDir . '/src/Utils/SrSearchPDBlockTrait.php',
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\BasePluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\PluginUninstallTrait' => $vendorDir . '/srag/removeplugindataconfirm/src/PluginUninstallTrait.php',
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\RemovePluginDataConfirmCtrl' => $vendorDir . '/srag/removeplugindataconfirm/src/class.RemovePluginDataConfirmCtrl.php',

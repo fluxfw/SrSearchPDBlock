@@ -1,7 +1,7 @@
 <?php
 
 use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
 require_once __DIR__ . "/../vendor/autoload.php";
@@ -15,6 +15,7 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 {
 
     use PluginUninstallTrait;
+    use SrSearchPDBlockTrait;
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
     const PLUGIN_CLASS_NAME = self::class;
@@ -72,7 +73,6 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
      */
     protected function deleteData()/*: void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        self::dic()->database()->dropTable(Config::TABLE_NAME_WRONG, false);
+        self::srSearchPDBlock()->dropTables();
     }
 }

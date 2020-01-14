@@ -7,6 +7,7 @@ use ilSrSearchPDBlockPlugin;
 use ilTemplate;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Exception\DICException;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class BaseSearchBlock
@@ -19,6 +20,7 @@ abstract class BaseSearchBlock extends ilBlockGUI
 {
 
     use DICTrait;
+    use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var string

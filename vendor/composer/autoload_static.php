@@ -9,17 +9,17 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => 45,
             'srag\\Plugins\\SrSearchPDBlock\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\DIC\\SrSearchPDBlock\\' => 25,
+            'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 37,
+            'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 40,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -31,15 +31,15 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -153,6 +153,8 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock54' => __DIR__ . '/../..' . '/src/Block/GlobalSearch/GlobalSearchBlock54.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Utils\\SrSearchPDBlockTrait' => __DIR__ . '/../..' . '/src/Utils/SrSearchPDBlockTrait.php',
         'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\PluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/PluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\RemovePluginDataConfirmCtrl' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/class.RemovePluginDataConfirmCtrl.php',
