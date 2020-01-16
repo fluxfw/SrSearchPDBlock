@@ -8,7 +8,7 @@ use ilRadioGroupInputGUI;
 use ilRadioOption;
 use ilSrSearchPDBlockConfigGUI;
 use ilSrSearchPDBlockPlugin;
-use srag\CustomInputGUIs\SrSearchPDBlock\PropertyFormGUI\ConfigPropertyFormGUI;
+use srag\CustomInputGUIs\SrSearchPDBlock\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\BaseCurrentPageSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
@@ -20,12 +20,11 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ConfigFormGUI extends ConfigPropertyFormGUI
+class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
-    const CONFIG_CLASS_NAME = Config::class;
     const LANG_MODULE = ilSrSearchPDBlockConfigGUI::LANG_MODULE;
 
 
@@ -37,6 +36,18 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     public function __construct(ilSrSearchPDBlockConfigGUI $parent)
     {
         parent::__construct($parent);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getValue(/*string*/ $key)
+    {
+        switch ($key) {
+            default:
+                return Config::getField($key);
+        }
     }
 
 
@@ -121,5 +132,18 @@ class ConfigFormGUI extends ConfigPropertyFormGUI
     protected function initTitle()/*: void*/
     {
 
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function storeValue(/*string*/ $key, $value)/*: void*/
+    {
+        switch ($key) {
+            default:
+                Config::setField($key, $value);
+                break;
+        }
     }
 }
