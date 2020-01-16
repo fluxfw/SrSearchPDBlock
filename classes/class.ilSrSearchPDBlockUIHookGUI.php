@@ -5,7 +5,7 @@ use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock5
 use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock54;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock53;
 use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock54;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -33,14 +33,14 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
         if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP)
+                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP)
             ];
         }
 
         if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS)
+                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS)
             ];
         }
 
@@ -58,11 +58,11 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     {
         $blocks = [];
 
-        if (Config::getField($key_config_global_search)) {
+        if (self::srSearchPDBlock()->config()->getField($key_config_global_search)) {
             $blocks[] = self::version()->is54() ? new GlobalSearchBlock54() : new GlobalSearchBlock53();
         }
 
-        if (Config::getField($key_config_current_page_search)) {
+        if (self::srSearchPDBlock()->config()->getField($key_config_current_page_search)) {
             $blocks[] = self::version()->is54() ? new CurrentPageSearchBlock54() : new CurrentPageSearchBlock53();
         }
 

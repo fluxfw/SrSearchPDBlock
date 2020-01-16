@@ -4,7 +4,7 @@ namespace srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch;
 
 use ilTemplate;
 use srag\Plugins\SrSearchPDBlock\Block\BaseSearchBlock;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
 
 /**
  * Class BaseCurrentPageSearchBlock
@@ -26,7 +26,8 @@ abstract class BaseCurrentPageSearchBlock extends BaseSearchBlock
     {
         self::dic()->mainTemplate()->addJavaScript(self::plugin()->directory() . "/js/current_page_search.min.js");
 
-        self::dic()->mainTemplate()->addOnLoadCode("il.SrSearchPDBlock.operator=" . json_encode(Config::getField(Config::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR)) . ";il.SrSearchPDBlock.init();");
+        self::dic()->mainTemplate()->addOnLoadCode("il.SrSearchPDBlock.operator=" . json_encode(self::srSearchPDBlock()->config()->getField(ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR))
+            . ";il.SrSearchPDBlock.init();");
 
         $tpl->setVariable("TXT_PLACEHOLDER", self::plugin()->translate("placeholder", self::LANG_MODULE));
 

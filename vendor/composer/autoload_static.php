@@ -155,7 +155,6 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\BaseGlobalSearchBlock' => __DIR__ . '/../..' . '/src/Block/GlobalSearch/BaseGlobalSearchBlock.php',
         'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock53' => __DIR__ . '/../..' . '/src/Block/GlobalSearch/GlobalSearchBlock53.php',
         'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock54' => __DIR__ . '/../..' . '/src/Block/GlobalSearch/GlobalSearchBlock54.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Config\\Config' => __DIR__ . '/../..' . '/src/Config/Config.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigFormGUI' => __DIR__ . '/../..' . '/src/Config/ConfigFormGUI.php',
         'srag\\Plugins\\SrSearchPDBlock\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrSearchPDBlock\\Utils\\SrSearchPDBlockTrait' => __DIR__ . '/../..' . '/src/Utils/SrSearchPDBlockTrait.php',

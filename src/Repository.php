@@ -3,8 +3,11 @@
 namespace srag\Plugins\SrSearchPDBlock;
 
 use ilSrSearchPDBlockPlugin;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\Config;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\Repository as ConfigRepository;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Utils\ConfigTrait;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -19,6 +22,9 @@ final class Repository
 
     use DICTrait;
     use SrSearchPDBlockTrait;
+    use ConfigTrait {
+        config as protected _config;
+    }
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var self
@@ -44,7 +50,22 @@ final class Repository
      */
     private function __construct()
     {
+        $this->config()->withTableName(ilSrSearchPDBlockPlugin::PLUGIN_ID . "_config")->withFields([
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP        => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP  => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR          => [Config::TYPE_INTEGER, ConfigFormGUI::OPERATOR_AND]
+        ]);
+    }
 
+
+    /**
+     * @inheritDoc
+     */
+    public function config() : ConfigRepository
+    {
+        return self::_config();
     }
 
 
@@ -53,8 +74,7 @@ final class Repository
      */
     public function dropTables()/*:void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        self::dic()->database()->dropTable(Config::TABLE_NAME_WRONG, false);
+        $this->config()->dropTables();
     }
 
 
@@ -63,14 +83,6 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
-        if (self::dic()->database()->tableExists(Config::TABLE_NAME_WRONG)) {
-            self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-
-            self::dic()->database()->renameTable(Config::TABLE_NAME_WRONG, Config::TABLE_NAME);
-
-            Config::updateDB();
-        } else {
-            Config::updateDB();
-        }
+        $this->config()->installTables();
     }
 }
