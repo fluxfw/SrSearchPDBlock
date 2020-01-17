@@ -58,11 +58,11 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     {
         $blocks = [];
 
-        if (self::srSearchPDBlock()->config()->getField($key_config_global_search)) {
+        if (self::srSearchPDBlock()->config()->getValue($key_config_global_search)) {
             $blocks[] = self::version()->is54() ? new GlobalSearchBlock54() : new GlobalSearchBlock53();
         }
 
-        if (self::srSearchPDBlock()->config()->getField($key_config_current_page_search)) {
+        if (self::srSearchPDBlock()->config()->getValue($key_config_current_page_search)) {
             $blocks[] = self::version()->is54() ? new CurrentPageSearchBlock54() : new CurrentPageSearchBlock53();
         }
 

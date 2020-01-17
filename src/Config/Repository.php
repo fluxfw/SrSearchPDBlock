@@ -1,0 +1,84 @@
+<?php
+
+namespace srag\Plugins\SrSearchPDBlock\Config;
+
+use ilSrSearchPDBlockPlugin;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractFactory;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractRepository;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
+
+/**
+ * Class Repository
+ *
+ * @package srag\Plugins\SrSearchPDBlock\Config
+ *
+ * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ */
+final class Repository extends AbstractRepository
+{
+
+    use SrSearchPDBlockTrait;
+    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
+    /**
+     * @var self
+     */
+    protected static $instance = null;
+
+
+    /**
+     * @return self
+     */
+    public static function getInstance() : self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+
+    /**
+     * Repository constructor
+     */
+    private function __construct()
+    {
+        parent::__construct();
+    }
+
+
+    /**
+     * @inheritDoc
+     *
+     * @return Factory
+     */
+    public function factory() : AbstractFactory
+    {
+        return Factory::getInstance();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getTableName() : string
+    {
+        return ilSrSearchPDBlockPlugin::PLUGIN_ID . "_config";
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getFields() : array
+    {
+        return [
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP        => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP  => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR          => [Config::TYPE_INTEGER, ConfigFormGUI::OPERATOR_AND]
+        ];
+    }
+}

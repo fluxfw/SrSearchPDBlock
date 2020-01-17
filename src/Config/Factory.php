@@ -1,23 +1,22 @@
 <?php
 
-namespace srag\Plugins\SrSearchPDBlock;
+namespace srag\Plugins\SrSearchPDBlock\Config;
 
+use ilSrSearchPDBlockConfigGUI;
 use ilSrSearchPDBlockPlugin;
-use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Config\Repository as ConfigRepository;
+use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractFactory;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
- * Class Repository
+ * Class Factory
  *
- * @package srag\Plugins\SrSearchPDBlock
+ * @package srag\Plugins\SrSearchPDBlock\Config
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-final class Repository
+final class Factory extends AbstractFactory
 {
 
-    use DICTrait;
     use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
@@ -40,37 +39,23 @@ final class Repository
 
 
     /**
-     * Repository constructor
+     * Factory constructor
      */
     private function __construct()
     {
-
+        parent::__construct();
     }
 
 
     /**
-     * @return ConfigRepository
-     */
-    public function config() : ConfigRepository
-    {
-        return ConfigRepository::getInstance();
-    }
-
-
-    /**
+     * @param ilSrSearchPDBlockConfigGUI $parent
      *
+     * @return ConfigFormGUI
      */
-    public function dropTables()/*:void*/
+    public function newFormInstance(ilSrSearchPDBlockConfigGUI $parent) : ConfigFormGUI
     {
-        $this->config()->dropTables();
-    }
+        $form = new ConfigFormGUI($parent);
 
-
-    /**
-     *
-     */
-    public function installTables()/*:void*/
-    {
-        $this->config()->installTables();
+        return $form;
     }
 }

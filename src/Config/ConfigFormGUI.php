@@ -53,7 +53,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                return self::srSearchPDBlock()->config()->getField($key);
+                return self::srSearchPDBlock()->config()->getValue($key);
         }
     }
 
@@ -149,7 +149,7 @@ class ConfigFormGUI extends PropertyFormGUI
     {
         switch ($key) {
             default:
-                self::srSearchPDBlock()->config()->setField($key, $value);
+                self::srSearchPDBlock()->config()->setValue($key, $value);
                 break;
         }
     }
