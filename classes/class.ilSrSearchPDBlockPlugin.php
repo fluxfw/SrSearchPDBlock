@@ -1,6 +1,5 @@
 <?php
 
-use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
@@ -63,8 +62,7 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     {
         parent::updateLanguages($a_lang_keys);
 
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+        $this->installRemovePluginDataConfirmLanguages();
     }
 
 
