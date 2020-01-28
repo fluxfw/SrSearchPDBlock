@@ -4,7 +4,7 @@ namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilBlockGUI;
 use ilSrSearchPDBlockPlugin;
-use ilTemplate;
+use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Exception\DICException;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
@@ -64,18 +64,18 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
-     * @return ilTemplate
+     * @return Template
      */
-    protected function getTemplate() : ilTemplate
+    protected function getTemplate() : Template
     {
         return self::plugin()->template(static::LANG_MODULE . ".html");
     }
 
 
     /**
-     * @param ilTemplate $tpl
+     * @param Template $tpl
      *
-     * @return ilTemplate
+     * @return Template
      */
-    protected abstract function fillTemplate(ilTemplate $tpl) : ilTemplate;
+    protected abstract function fillTemplate(Template $tpl) : Template;
 }

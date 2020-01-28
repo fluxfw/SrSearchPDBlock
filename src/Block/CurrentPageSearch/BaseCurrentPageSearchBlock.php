@@ -2,7 +2,7 @@
 
 namespace srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch;
 
-use ilTemplate;
+use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
 use srag\Plugins\SrSearchPDBlock\Block\BaseSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
 
@@ -22,14 +22,14 @@ abstract class BaseCurrentPageSearchBlock extends BaseSearchBlock
     /**
      * @inheritDoc
      */
-    protected function fillTemplate(ilTemplate $tpl) : ilTemplate
+    protected function fillTemplate(Template $tpl) : Template
     {
         self::dic()->ui()->mainTemplate()->addJavaScript(self::plugin()->directory() . "/js/current_page_search.min.js");
 
         self::dic()->ui()->mainTemplate()->addOnLoadCode("il.SrSearchPDBlock.operator=" . json_encode(self::srSearchPDBlock()->config()->getValue(ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR))
             . ";il.SrSearchPDBlock.init();");
 
-        $tpl->setVariable("TXT_PLACEHOLDER", self::plugin()->translate("placeholder", self::LANG_MODULE));
+        $tpl->setVariableEscaped("TXT_PLACEHOLDER", self::plugin()->translate("placeholder", self::LANG_MODULE));
 
         return $tpl;
     }
