@@ -48,7 +48,7 @@ abstract class BaseSearchBlock extends ilBlockGUI
      */
     protected function initBlock()/*: void*/
     {
-        self::dic()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
+        self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
 
         $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
     }

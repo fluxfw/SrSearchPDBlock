@@ -24,9 +24,9 @@ abstract class BaseCurrentPageSearchBlock extends BaseSearchBlock
      */
     protected function fillTemplate(ilTemplate $tpl) : ilTemplate
     {
-        self::dic()->mainTemplate()->addJavaScript(self::plugin()->directory() . "/js/current_page_search.min.js");
+        self::dic()->ui()->mainTemplate()->addJavaScript(self::plugin()->directory() . "/js/current_page_search.min.js");
 
-        self::dic()->mainTemplate()->addOnLoadCode("il.SrSearchPDBlock.operator=" . json_encode(self::srSearchPDBlock()->config()->getValue(ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR))
+        self::dic()->ui()->mainTemplate()->addOnLoadCode("il.SrSearchPDBlock.operator=" . json_encode(self::srSearchPDBlock()->config()->getValue(ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR))
             . ";il.SrSearchPDBlock.init();");
 
         $tpl->setVariable("TXT_PLACEHOLDER", self::plugin()->translate("placeholder", self::LANG_MODULE));
