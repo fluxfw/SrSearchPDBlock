@@ -1,10 +1,6 @@
 <?php
 
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock54;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock54;
 use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
@@ -59,11 +55,11 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
         $blocks = [];
 
         if (self::srSearchPDBlock()->config()->getValue($key_config_global_search)) {
-            $blocks[] = self::version()->is54() ? new GlobalSearchBlock54() : new GlobalSearchBlock53();
+            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->globalSearch();
         }
 
         if (self::srSearchPDBlock()->config()->getValue($key_config_current_page_search)) {
-            $blocks[] = self::version()->is54() ? new CurrentPageSearchBlock54() : new CurrentPageSearchBlock53();
+            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->currentPageSearch();
         }
 
         return self::output()->getHTML($blocks);

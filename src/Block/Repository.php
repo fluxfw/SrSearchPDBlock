@@ -1,17 +1,15 @@
 <?php
 
-namespace srag\Plugins\SrSearchPDBlock;
+namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilSrSearchPDBlockPlugin;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Block\Repository as BlocksRepository;
-use srag\Plugins\SrSearchPDBlock\Config\Repository as ConfigRepository;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class Repository
  *
- * @package srag\Plugins\SrSearchPDBlock
+ * @package srag\Plugins\SrSearchPDBlock\Block
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -50,39 +48,27 @@ final class Repository
 
 
     /**
-     * @return BlocksRepository
-     */
-    public function blocks() : BlocksRepository
-    {
-        return BlocksRepository::getInstance();
-    }
-
-
-    /**
-     * @return ConfigRepository
-     */
-    public function config() : ConfigRepository
-    {
-        return ConfigRepository::getInstance();
-    }
-
-
-    /**
-     *
+     * @internal
      */
     public function dropTables()/*:void*/
     {
-        $this->blocks()->dropTables();
-        $this->config()->dropTables();
+
     }
 
 
     /**
-     *
+     * @return Factory
+     */
+    public function factory() : Factory
+    {
+        return Factory::getInstance();
+    }
+
+
+    /**
+     * @internal
      */
     public function installTables()/*:void*/
     {
-        $this->blocks()->installTables();
-        $this->config()->installTables();
     }
 }
