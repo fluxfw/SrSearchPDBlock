@@ -6,7 +6,6 @@ use ilBlockGUI;
 use ilSrSearchPDBlockPlugin;
 use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\DIC\SrSearchPDBlock\Exception\DICException;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -32,8 +31,6 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
     /**
      * BaseSearchBlock constructor
-     *
-     * @throws DICException
      */
     public function __construct()
     {
