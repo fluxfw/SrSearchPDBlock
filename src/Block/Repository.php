@@ -70,5 +70,6 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
+
     }
 }
