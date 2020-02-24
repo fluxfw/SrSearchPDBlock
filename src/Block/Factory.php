@@ -26,7 +26,7 @@ final class Factory
     use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
-     * @var self
+     * @var self|null
      */
     protected static $instance = null;
 
