@@ -25,10 +25,10 @@ class ConfigFormGUI extends PropertyFormGUI
 
     use SrSearchPDBlockTrait;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
-    const KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP = "show_global_search_personal_desktop";
-    const KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS = "show_global_search_container_objects";
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP = "show_current_page_search_personal_desktop";
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS = "show_current_page_search_container_objects";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP = "show_global_search_personal_desktop";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_global_search_container_objects";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP = "show_current_page_search_personal_desktop";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS = "show_current_page_search_container_objects";
     const KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR = "show_current_page_search_operator";
     const LANG_MODULE = ilSrSearchPDBlockConfigGUI::LANG_MODULE;
     const OPERATOR_AND = 1;
@@ -77,34 +77,28 @@ class ConfigFormGUI extends PropertyFormGUI
                 self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class,
                 "setTitle"           => self::plugin()->translate("title", BaseGlobalSearchBlock::LANG_MODULE)
             ],
-            self::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP  => [
+            self::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("show", self::LANG_MODULE, [
-                    self::plugin()->translate("personal_desktop", self::LANG_MODULE)
-                ])
+                "setTitle"           => self::plugin()->translate("personal_desktop", self::LANG_MODULE)
             ],
-            self::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS => [
+            self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("show", self::LANG_MODULE, [
+                "setTitle"           =>
                     self::plugin()->translate("container_objects", self::LANG_MODULE)
-                ])
             ],
 
             BaseCurrentPageSearchBlock::LANG_MODULE . "_header"  => [
                 self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class,
                 "setTitle"           => self::plugin()->translate("title", BaseCurrentPageSearchBlock::LANG_MODULE)
             ],
-            self::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP  => [
+            self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("show", self::LANG_MODULE, [
-                    self::plugin()->translate("personal_desktop", self::LANG_MODULE)
-                ])
+                "setTitle"           => self::plugin()->translate("personal_desktop", self::LANG_MODULE)
             ],
-            self::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS => [
+            self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("show", self::LANG_MODULE, [
+                "setTitle"           =>
                     self::plugin()->translate("container_objects", self::LANG_MODULE)
-                ])
             ],
             self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR          => [
                 self::PROPERTY_CLASS    => ilRadioGroupInputGUI::class,

@@ -29,14 +29,14 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
         if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP)
+                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP)
             ];
         }
 
         if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_RIGHT_COLUMN) {
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS)
+                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
             ];
         }
 

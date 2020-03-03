@@ -74,11 +74,11 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
-            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP        => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP  => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR          => [Config::TYPE_INTEGER, ConfigFormGUI::OPERATOR_AND]
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP        => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP  => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
+            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [Config::TYPE_INTEGER, ConfigFormGUI::OPERATOR_AND]
         ];
     }
 }
