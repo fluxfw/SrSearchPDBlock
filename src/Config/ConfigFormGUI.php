@@ -73,46 +73,45 @@ class ConfigFormGUI extends PropertyFormGUI
     protected function initFields()/*: void*/
     {
         $this->fields = [
-            BaseGlobalSearchBlock::LANG_MODULE . "_header" => [
+            BaseGlobalSearchBlock::LANG_MODULE . "_header"    => [
                 self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class,
                 "setTitle"           => self::plugin()->translate("title", BaseGlobalSearchBlock::LANG_MODULE)
             ],
-            self::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP => [
+            self::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP  => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("personal_desktop", self::LANG_MODULE)
+                "setTitle"           => $this->txt("personal_desktop")
             ],
             self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           =>
-                    self::plugin()->translate("container_objects", self::LANG_MODULE)
+                "setTitle"           => $this->txt("container_objects")
             ],
 
-            BaseCurrentPageSearchBlock::LANG_MODULE . "_header"  => [
+            BaseCurrentPageSearchBlock::LANG_MODULE . "_header"     => [
                 self::PROPERTY_CLASS => ilFormSectionHeaderGUI::class,
                 "setTitle"           => self::plugin()->translate("title", BaseCurrentPageSearchBlock::LANG_MODULE)
             ],
-            self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP => [
+            self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP  => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
-                "setTitle"           => self::plugin()->translate("personal_desktop", self::LANG_MODULE)
+                "setTitle"           => $this->txt("personal_desktop")
             ],
             self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [
                 self::PROPERTY_CLASS => ilCheckboxInputGUI::class,
                 "setTitle"           =>
-                    self::plugin()->translate("container_objects", self::LANG_MODULE)
+                    $this->txt("container_objects")
             ],
-            self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR          => [
+            self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [
                 self::PROPERTY_CLASS    => ilRadioGroupInputGUI::class,
                 self::PROPERTY_SUBITEMS => [
                     self::OPERATOR_AND => [
                         self::PROPERTY_CLASS => ilRadioOption::class,
-                        "setTitle"           => self::plugin()->translate("operator_and", self::LANG_MODULE)
+                        "setTitle"           => $this->txt("operator_and")
                     ],
                     self::OPERATOR_OR  => [
                         self::PROPERTY_CLASS => ilRadioOption::class,
-                        "setTitle"           => self::plugin()->translate("operator_or", self::LANG_MODULE)
+                        "setTitle"           => $this->txt("operator_or")
                     ]
                 ],
-                "setTitle"              => self::plugin()->translate("operator", self::LANG_MODULE)
+                "setTitle"              => $this->txt("operator")
             ]
         ];
     }
