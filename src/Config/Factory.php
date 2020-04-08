@@ -2,7 +2,6 @@
 
 namespace srag\Plugins\SrSearchPDBlock\Config;
 
-use ilSrSearchPDBlockConfigGUI;
 use ilSrSearchPDBlockPlugin;
 use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractFactory;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
@@ -48,11 +47,11 @@ final class Factory extends AbstractFactory
 
 
     /**
-     * @param ilSrSearchPDBlockConfigGUI $parent
+     * @param ConfigCtrl $parent
      *
      * @return ConfigFormGUI
      */
-    public function newFormInstance(ilSrSearchPDBlockConfigGUI $parent) : ConfigFormGUI
+    public function newFormInstance(ConfigCtrl $parent) : ConfigFormGUI
     {
         $form = new ConfigFormGUI($parent);
 

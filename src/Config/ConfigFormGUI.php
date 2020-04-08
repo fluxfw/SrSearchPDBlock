@@ -6,7 +6,6 @@ use ilCheckboxInputGUI;
 use ilFormSectionHeaderGUI;
 use ilRadioGroupInputGUI;
 use ilRadioOption;
-use ilSrSearchPDBlockConfigGUI;
 use ilSrSearchPDBlockPlugin;
 use srag\CustomInputGUIs\SrSearchPDBlock\PropertyFormGUI\PropertyFormGUI;
 use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\BaseCurrentPageSearchBlock;
@@ -30,7 +29,7 @@ class ConfigFormGUI extends PropertyFormGUI
     const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP = "show_current_page_search_personal_desktop";
     const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS = "show_current_page_search_container_objects";
     const KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR = "show_current_page_search_operator";
-    const LANG_MODULE = ilSrSearchPDBlockConfigGUI::LANG_MODULE;
+    const LANG_MODULE = ConfigCtrl::LANG_MODULE;
     const OPERATOR_AND = 1;
     const OPERATOR_OR = 2;
 
@@ -38,9 +37,9 @@ class ConfigFormGUI extends PropertyFormGUI
     /**
      * ConfigFormGUI constructor
      *
-     * @param ilSrSearchPDBlockConfigGUI $parent
+     * @param ConfigCtrl $parent
      */
-    public function __construct(ilSrSearchPDBlockConfigGUI $parent)
+    public function __construct(ConfigCtrl $parent)
     {
         parent::__construct($parent);
     }
@@ -63,7 +62,7 @@ class ConfigFormGUI extends PropertyFormGUI
      */
     protected function initCommands()/*: void*/
     {
-        $this->addCommandButton(ilSrSearchPDBlockConfigGUI::CMD_UPDATE_CONFIGURE, $this->txt("save"));
+        $this->addCommandButton(ConfigCtrl::CMD_UPDATE_CONFIGURE, $this->txt("save"));
     }
 
 

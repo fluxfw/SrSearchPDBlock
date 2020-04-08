@@ -119,6 +119,7 @@ return array(
     'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock53' => $baseDir . '/src/Block/GlobalSearch/GlobalSearchBlock53.php',
     'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearch\\GlobalSearchBlock54' => $baseDir . '/src/Block/GlobalSearch/GlobalSearchBlock54.php',
     'srag\\Plugins\\SrSearchPDBlock\\Block\\Repository' => $baseDir . '/src/Block/Repository.php',
+    'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigCtrl' => $baseDir . '/src/Config/class.ConfigCtrl.php',
     'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigFormGUI' => $baseDir . '/src/Config/ConfigFormGUI.php',
     'srag\\Plugins\\SrSearchPDBlock\\Config\\Factory' => $baseDir . '/src/Config/Factory.php',
     'srag\\Plugins\\SrSearchPDBlock\\Config\\Repository' => $baseDir . '/src/Config/Repository.php',
