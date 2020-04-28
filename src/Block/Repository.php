@@ -18,6 +18,7 @@ final class Repository
 
     use DICTrait;
     use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var self|null

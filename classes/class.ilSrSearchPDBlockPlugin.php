@@ -15,6 +15,7 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 
     use PluginUninstallTrait;
     use SrSearchPDBlockTrait;
+
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
     const PLUGIN_CLASS_NAME = self::class;

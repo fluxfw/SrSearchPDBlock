@@ -17,6 +17,7 @@ final class Factory extends AbstractFactory
 {
 
     use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var self|null

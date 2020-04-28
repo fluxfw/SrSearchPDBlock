@@ -16,6 +16,7 @@ class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
 
     use DICTrait;
     use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const CMD_CONFIGURE = "configure";
 

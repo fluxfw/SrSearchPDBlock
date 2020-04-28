@@ -23,6 +23,7 @@ class ConfigFormGUI extends PropertyFormGUI
 {
 
     use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP = "show_global_search_personal_desktop";
     const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_global_search_container_objects";

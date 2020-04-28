@@ -21,6 +21,7 @@ class ConfigCtrl
 
     use DICTrait;
     use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const CMD_CONFIGURE = "configure";
     const CMD_UPDATE_CONFIGURE = "updateConfigure";
