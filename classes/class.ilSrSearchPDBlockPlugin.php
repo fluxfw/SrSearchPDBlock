@@ -1,9 +1,9 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
-
-require_once __DIR__ . "/../vendor/autoload.php";
 
 /**
  * Class ilSrSearchPDBlockPlugin
