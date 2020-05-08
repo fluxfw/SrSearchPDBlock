@@ -1,4 +1,4 @@
-## SrSearchPDBlock Description
+# SrSearchPDBlock ILIAS Plugin Description
 
 This plugin adds two search blocks to personal desktop or container objects:
 - Global search
