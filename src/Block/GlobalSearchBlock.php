@@ -1,19 +1,18 @@
 <?php
 
-namespace srag\Plugins\SrSearchPDBlock\Block\GlobalSearch;
+namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilSearchController;
 use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
-use srag\Plugins\SrSearchPDBlock\Block\BaseSearchBlock;
 
 /**
- * Class BaseGlobalSearchBlock
+ * Class GlobalSearchBlock
  *
- * @package srag\Plugins\SrSearchPDBlock\Block\GlobalSearch
+ * @package srag\Plugins\SrSearchPDBlock\Block
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-abstract class BaseGlobalSearchBlock extends BaseSearchBlock
+class GlobalSearchBlock extends BaseSearchBlock
 {
 
     const LANG_MODULE = "global_search";

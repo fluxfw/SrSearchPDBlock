@@ -42,6 +42,24 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
+     * @inheritDoc
+     */
+    public function getBlockType() : string
+    {
+        return ilSrSearchPDBlockPlugin::PLUGIN_ID;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function isRepositoryObject() : bool
+    {
+        return false;
+    }
+
+
+    /**
      *
      */
     protected function initBlock()/*: void*/
@@ -49,6 +67,19 @@ abstract class BaseSearchBlock extends ilBlockGUI
         self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
 
         $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+
+        if (self::version()->is60()) {
+            $this->new_rendering = true;
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getLegacyContent() : string
+    {
+        return self::output()->getHTML($this->fillTemplate($this->getTemplate()));
     }
 
 

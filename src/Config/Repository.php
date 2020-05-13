@@ -6,6 +6,7 @@ use ilSrSearchPDBlockPlugin;
 use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractFactory;
 use srag\ActiveRecordConfig\SrSearchPDBlock\Config\AbstractRepository;
 use srag\ActiveRecordConfig\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Config\Form\FormBuilder;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -75,11 +76,11 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
-            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP        => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP  => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
-            ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [Config::TYPE_INTEGER, ConfigFormGUI::OPERATOR_AND]
+            FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD               => [Config::TYPE_BOOLEAN, false],
+            FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
+            FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD         => [Config::TYPE_BOOLEAN, false],
+            FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
+            FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [Config::TYPE_INTEGER, FormBuilder::OPERATOR_AND]
         ];
     }
 }
