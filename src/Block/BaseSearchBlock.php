@@ -68,7 +68,7 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
         $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
 
-        if (self::version()->is60()) {
+        if (self::version()->is6()) {
             $this->new_rendering = true;
         }
     }
