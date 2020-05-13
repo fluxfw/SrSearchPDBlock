@@ -98,7 +98,6 @@ return array(
     'srag\\DIC\\SrSearchPDBlock\\DICTrait' => $vendorDir . '/srag/dic/src/DICTrait.php',
     'srag\\DIC\\SrSearchPDBlock\\DIC\\AbstractDIC' => $vendorDir . '/srag/dic/src/DIC/AbstractDIC.php',
     'srag\\DIC\\SrSearchPDBlock\\DIC\\DICInterface' => $vendorDir . '/srag/dic/src/DIC/DICInterface.php',
-    'srag\\DIC\\SrSearchPDBlock\\DIC\\Implementation\\ILIAS53DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS53DIC.php',
     'srag\\DIC\\SrSearchPDBlock\\DIC\\Implementation\\ILIAS54DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS54DIC.php',
     'srag\\DIC\\SrSearchPDBlock\\DIC\\Implementation\\ILIAS60DIC' => $vendorDir . '/srag/dic/src/DIC/Implementation/ILIAS60DIC.php',
     'srag\\DIC\\SrSearchPDBlock\\Database\\AbstractILIASDatabaseDetector' => $vendorDir . '/srag/dic/src/Database/AbstractILIASDatabaseDetector.php',
