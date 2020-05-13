@@ -1,7 +1,7 @@
 <?php
 
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
+use srag\Plugins\SrSearchPDBlock\Config\Form\FormBuilder;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -17,6 +17,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
 
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const COMPONENT_CONTAINER = "Services/Container";
+    const COMPONENT_DASHBOARD = "Services/Dashboard";
     const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";
     const PART_RIGHT_COLUMN = "right_column";
 
@@ -27,11 +28,11 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
     {
 
-        if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
+        if (($a_comp === self::COMPONENT_PERSONAL_DESKTOP || $a_comp === self::COMPONENT_DASHBOARD) && $a_part === self::PART_RIGHT_COLUMN) {
 
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_PERSONAL_DESKTOP, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_PERSONAL_DESKTOP)
+                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD)
             ];
         }
 
@@ -39,7 +40,7 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
 
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(ConfigFormGUI::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, ConfigFormGUI::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
+                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
             ];
         }
 

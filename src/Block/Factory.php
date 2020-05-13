@@ -4,12 +4,6 @@ namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilSrSearchPDBlockPlugin;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\BaseCurrentPageSearchBlock;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock54;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\BaseGlobalSearchBlock;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock54;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -55,30 +49,22 @@ final class Factory
 
 
     /**
-     * @return BaseGlobalSearchBlock
+     * @return GlobalSearchBlock
      */
-    public function globalSearch() : BaseGlobalSearchBlock
+    public function globalSearch() : GlobalSearchBlock
     {
-        if (self::version()->is54()) {
-            $block = new GlobalSearchBlock54();
-        } else {
-            $block = new GlobalSearchBlock53();
-        }
+        $block = new GlobalSearchBlock();
 
         return $block;
     }
 
 
     /**
-     * @return BaseCurrentPageSearchBlock
+     * @return CurrentPageSearchBlock
      */
-    public function currentPageSearch() : BaseCurrentPageSearchBlock
+    public function currentPageSearch() : CurrentPageSearchBlock
     {
-        if (self::version()->is54()) {
-            $block = new CurrentPageSearchBlock54();
-        } else {
-            $block = new CurrentPageSearchBlock53();
-        }
+        $block = new CurrentPageSearchBlock();
 
         return $block;
     }
