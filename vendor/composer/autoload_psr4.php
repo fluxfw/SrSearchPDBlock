@@ -9,7 +9,7 @@ return array(
     'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
     'srag\\Plugins\\SrSearchPDBlock\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\DIC\\' => array($vendorDir . '/srag/dic/src'),
+    'srag\\DIC\\SrSearchPDBlock\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\' => array($vendorDir . '/srag/custominputguis/src'),
     'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => array($vendorDir . '/srag/activerecordconfig/src'),
 );
