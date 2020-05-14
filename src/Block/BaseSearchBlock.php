@@ -79,16 +79,25 @@ abstract class BaseSearchBlock extends ilBlockGUI
      */
     protected function getLegacyContent() : string
     {
-        return self::output()->getHTML($this->fillTemplate($this->getTemplate()));
+        return $this->getSearch();
     }
 
 
     /**
-     *
+     * @inheritDoc
      */
     public function fillDataSection()/*: void*/
     {
-        $this->setDataSection(self::output()->getHTML($this->fillTemplate($this->getTemplate())));
+        $this->setDataSection($this->getSearch());
+    }
+
+
+    /**
+     * @return string
+     */
+    protected function getSearch() : string
+    {
+        return self::output()->getHTML($this->fillTemplate($this->getTemplate()));
     }
 
 
