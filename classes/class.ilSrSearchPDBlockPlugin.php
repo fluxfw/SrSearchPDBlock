@@ -1,10 +1,11 @@
 <?php
 
-use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
-use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
-
 require_once __DIR__ . "/../vendor/autoload.php";
+
+use ILIAS\DI\Container;
+use srag\CustomInputGUIs\SrSearchPDBlock\Loader\CustomInputGUIsLoaderDetector;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
+use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
 /**
  * Class ilSrSearchPDBlockPlugin
@@ -15,6 +16,8 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 {
 
     use PluginUninstallTrait;
+    use SrSearchPDBlockTrait;
+
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
     const PLUGIN_CLASS_NAME = self::class;
@@ -47,7 +50,7 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getPluginName() : string
     {
@@ -56,23 +59,30 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function updateLanguages($a_lang_keys = null)
+    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/
     {
         parent::updateLanguages($a_lang_keys);
 
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../vendor/srag/removeplugindataconfirm/lang")->updateLanguages();
+        $this->installRemovePluginDataConfirmLanguages();
     }
 
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     protected function deleteData()/*: void*/
     {
-        self::dic()->database()->dropTable(Config::TABLE_NAME, false);
-        self::dic()->database()->dropTable(Config::TABLE_NAME_WRONG, false);
+        self::srSearchPDBlock()->dropTables();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    {
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 }

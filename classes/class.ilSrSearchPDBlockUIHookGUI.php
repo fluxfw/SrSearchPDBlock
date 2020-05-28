@@ -1,11 +1,8 @@
 <?php
 
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearch\CurrentPageSearchBlock54;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock53;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearch\GlobalSearchBlock54;
-use srag\Plugins\SrSearchPDBlock\Config\Config;
+use srag\Plugins\SrSearchPDBlock\Config\Form\FormBuilder;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class ilSrSearchPDBlockUIHookGUI
@@ -16,36 +13,34 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
 {
 
     use DICTrait;
+    use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const COMPONENT_CONTAINER = "Services/Container";
+    const COMPONENT_DASHBOARD = "Services/Dashboard";
     const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";
     const PART_RIGHT_COLUMN = "right_column";
 
 
     /**
-     * @param string $a_comp
-     * @param string $a_part
-     * @param array  $a_par
-     *
-     * @return array
+     * @inheritDoc
      */
-    public function getHTML(/*string*/
-        $a_comp, /*string*/
-        $a_part,
-        $a_par = []
-    ) : array {
+    public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
+    {
 
-        if ($a_comp === self::COMPONENT_PERSONAL_DESKTOP && $a_part === self::PART_RIGHT_COLUMN) {
+        if (($a_comp === self::COMPONENT_DASHBOARD || $a_comp === self::COMPONENT_PERSONAL_DESKTOP) && $a_part === self::PART_RIGHT_COLUMN) {
+
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_PERSONAL_DESKTOP, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_PERSONAL_DESKTOP)
+                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD)
             ];
         }
 
         if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_RIGHT_COLUMN) {
+
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(Config::KEY_SHOW_GLOBAL_SEARCH_CONTAINER_OBJECTS, Config::KEY_SHOW_CURRENT_PAGE_SEARCH_CONTAINER_OBJECTS)
+                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
             ];
         }
 
@@ -63,12 +58,12 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     {
         $blocks = [];
 
-        if (Config::getField($key_config_global_search)) {
-            $blocks[] = self::version()->is54() ? new GlobalSearchBlock54() : new GlobalSearchBlock53();
+        if (self::srSearchPDBlock()->config()->getValue($key_config_global_search)) {
+            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->globalSearch();
         }
 
-        if (Config::getField($key_config_current_page_search)) {
-            $blocks[] = self::version()->is54() ? new CurrentPageSearchBlock54() : new CurrentPageSearchBlock53();
+        if (self::srSearchPDBlock()->config()->getValue($key_config_current_page_search)) {
+            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->currentPageSearch();
         }
 
         return self::output()->getHTML($blocks);

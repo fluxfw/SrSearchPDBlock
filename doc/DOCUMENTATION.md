@@ -1,1 +1,1 @@
-## SrSearchPDBlock-Documentation
+# SrSearchPDBlock ILIAS Plugin Documentation

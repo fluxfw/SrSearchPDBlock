@@ -4,9 +4,9 @@ namespace srag\Plugins\SrSearchPDBlock\Block;
 
 use ilBlockGUI;
 use ilSrSearchPDBlockPlugin;
-use ilTemplate;
+use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\DIC\SrSearchPDBlock\Exception\DICException;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class BaseSearchBlock
@@ -19,6 +19,8 @@ abstract class BaseSearchBlock extends ilBlockGUI
 {
 
     use DICTrait;
+    use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var string
@@ -30,8 +32,6 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
     /**
      * BaseSearchBlock constructor
-     *
-     * @throws DICException
      */
     public function __construct()
     {
@@ -42,38 +42,78 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
+     * @inheritDoc
+     */
+    public function getBlockType() : string
+    {
+        return ilSrSearchPDBlockPlugin::PLUGIN_ID;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function isRepositoryObject() : bool
+    {
+        return false;
+    }
+
+
+    /**
      *
      */
     protected function initBlock()/*: void*/
     {
-        self::dic()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
+        self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
 
         $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+
+        if (self::version()->is6()) {
+            $this->new_rendering = true;
+        }
     }
 
 
     /**
-     *
+     * @inheritDoc
+     */
+    protected function getLegacyContent() : string
+    {
+        return $this->getSearch();
+    }
+
+
+    /**
+     * @inheritDoc
      */
     public function fillDataSection()/*: void*/
     {
-        $this->setDataSection(self::output()->getHTML($this->fillTemplate($this->getTemplate())));
+        $this->setDataSection($this->getSearch());
     }
 
 
     /**
-     * @return ilTemplate
+     * @return string
      */
-    protected function getTemplate() : ilTemplate
+    protected function getSearch() : string
+    {
+        return self::output()->getHTML($this->fillTemplate($this->getTemplate()));
+    }
+
+
+    /**
+     * @return Template
+     */
+    protected function getTemplate() : Template
     {
         return self::plugin()->template(static::LANG_MODULE . ".html");
     }
 
 
     /**
-     * @param ilTemplate $tpl
+     * @param Template $tpl
      *
-     * @return ilTemplate
+     * @return Template
      */
-    protected abstract function fillTemplate(ilTemplate $tpl) : ilTemplate;
+    protected abstract function fillTemplate(Template $tpl) : Template;
 }

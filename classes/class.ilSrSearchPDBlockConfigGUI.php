@@ -2,20 +2,80 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\ActiveRecordConfig\SrSearchPDBlock\ActiveRecordConfigGUI;
-use srag\Plugins\SrSearchPDBlock\Config\ConfigFormGUI;
+use srag\DIC\SrSearchPDBlock\DICTrait;
+use srag\Plugins\SrSearchPDBlock\Config\ConfigCtrl;
+use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
  * Class ilSrSearchPDBlockConfigGUI
  *
  * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class ilSrSearchPDBlockConfigGUI extends ActiveRecordConfigGUI
+class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
 {
 
+    use DICTrait;
+    use SrSearchPDBlockTrait;
+
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
+    const CMD_CONFIGURE = "configure";
+
+
     /**
-     * @var array
+     * ilSrSearchPDBlockConfigGUI constructor
      */
-    protected static $tabs = [self::TAB_CONFIGURATION => ConfigFormGUI::class];
+    public function __construct()
+    {
+
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function performCommand(/*string*/ $cmd)/*:void*/
+    {
+        $this->setTabs();
+
+        $next_class = self::dic()->ctrl()->getNextClass($this);
+
+        switch (strtolower($next_class)) {
+            case strtolower(ConfigCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
+                break;
+
+            default:
+                $cmd = self::dic()->ctrl()->getCmd();
+
+                switch ($cmd) {
+                    case self::CMD_CONFIGURE:
+                        $this->{$cmd}();
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+        }
+    }
+
+
+    /**
+     *
+     */
+    protected function setTabs()/*: void*/
+    {
+        ConfigCtrl::addTabs();
+
+        self::dic()->locator()->addItem(ilSrSearchPDBlockPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
+    }
+
+
+    /**
+     *
+     */
+    protected function configure()/*: void*/
+    {
+        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
+    }
 }
