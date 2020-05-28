@@ -2,6 +2,8 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use ILIAS\DI\Container;
+use srag\CustomInputGUIs\SrSearchPDBlock\Loader\CustomInputGUIsLoaderDetector;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
@@ -73,5 +75,14 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     protected function deleteData()/*: void*/
     {
         self::srSearchPDBlock()->dropTables();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    {
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 }
