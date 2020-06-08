@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
 {
+    public static $files = array (
+        'b56beb5c30b99b64e30ee9bbb5c3b0bc' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
@@ -13,8 +17,8 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
             'srag\\Plugins\\SrSearchPDBlock\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrSearchPDBlock\\' => 25,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 37,
+            'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 40,
         ),
     );
 
@@ -35,11 +39,11 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -148,6 +152,7 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         'srag\\DIC\\SrSearchPDBlock\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
+        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhp' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhp.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
