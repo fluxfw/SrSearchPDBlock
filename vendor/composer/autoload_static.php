@@ -157,6 +157,7 @@ class ComposerStaticInit85442f6844a11e7759c1b2726154a12e
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
+        'srag\\LibrariesNamespaceChanger\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/UpdatePluginReadme.php',
         'srag\\Plugins\\SrSearchPDBlock\\Block\\BaseSearchBlock' => __DIR__ . '/../..' . '/src/Block/BaseSearchBlock.php',
         'srag\\Plugins\\SrSearchPDBlock\\Block\\CurrentPageSearchBlock' => __DIR__ . '/../..' . '/src/Block/CurrentPageSearchBlock.php',
         'srag\\Plugins\\SrSearchPDBlock\\Block\\Factory' => __DIR__ . '/../..' . '/src/Block/Factory.php',
