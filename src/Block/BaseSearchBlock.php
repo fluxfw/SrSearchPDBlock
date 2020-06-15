@@ -21,13 +21,13 @@ abstract class BaseSearchBlock extends ilBlockGUI
     use DICTrait;
     use SrSearchPDBlockTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     /**
      * @var string
      *
      * @abstract
      */
     const LANG_MODULE = "";
+    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
 
 
     /**
@@ -44,6 +44,15 @@ abstract class BaseSearchBlock extends ilBlockGUI
     /**
      * @inheritDoc
      */
+    public function fillDataSection()/*: void*/
+    {
+        $this->setDataSection($this->getSearch());
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function getBlockType() : string
     {
         return ilSrSearchPDBlockPlugin::PLUGIN_ID;
@@ -51,27 +60,11 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
-     * @inheritDoc
-     */
-    protected function isRepositoryObject() : bool
-    {
-        return false;
-    }
-
-
-    /**
+     * @param Template $tpl
      *
+     * @return Template
      */
-    protected function initBlock()/*: void*/
-    {
-        self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
-
-        $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
-
-        if (self::version()->is6()) {
-            $this->new_rendering = true;
-        }
-    }
+    protected abstract function fillTemplate(Template $tpl) : Template;
 
 
     /**
@@ -80,15 +73,6 @@ abstract class BaseSearchBlock extends ilBlockGUI
     protected function getLegacyContent() : string
     {
         return $this->getSearch();
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function fillDataSection()/*: void*/
-    {
-        $this->setDataSection($this->getSearch());
     }
 
 
@@ -111,9 +95,25 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
-     * @param Template $tpl
      *
-     * @return Template
      */
-    protected abstract function fillTemplate(Template $tpl) : Template;
+    protected function initBlock()/*: void*/
+    {
+        self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
+
+        $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
+
+        if (self::version()->is6()) {
+            $this->new_rendering = true;
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function isRepositoryObject() : bool
+    {
+        return false;
+    }
 }

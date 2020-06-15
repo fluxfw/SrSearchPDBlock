@@ -29,6 +29,15 @@ final class Repository extends AbstractRepository
 
 
     /**
+     * Repository constructor
+     */
+    protected function __construct()
+    {
+        parent::__construct();
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -38,15 +47,6 @@ final class Repository extends AbstractRepository
         }
 
         return self::$instance;
-    }
-
-
-    /**
-     * Repository constructor
-     */
-    protected function __construct()
-    {
-        parent::__construct();
     }
 
 
@@ -64,15 +64,6 @@ final class Repository extends AbstractRepository
     /**
      * @inheritDoc
      */
-    protected function getTableName() : string
-    {
-        return ilSrSearchPDBlockPlugin::PLUGIN_ID . "_config";
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     protected function getFields() : array
     {
         return [
@@ -82,5 +73,14 @@ final class Repository extends AbstractRepository
             FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [Config::TYPE_INTEGER, FormBuilder::OPERATOR_AND]
         ];
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    protected function getTableName() : string
+    {
+        return ilSrSearchPDBlockPlugin::PLUGIN_ID . "_config";
     }
 }

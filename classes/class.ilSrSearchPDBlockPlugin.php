@@ -18,13 +18,22 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     use PluginUninstallTrait;
     use SrSearchPDBlockTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srsearchpd";
     const PLUGIN_NAME = "SrSearchPDBlock";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrSearchPDBlockPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -41,11 +50,11 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * ilSrSearchPDBlockPlugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -55,15 +64,6 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return true;
     }
 
 
@@ -90,8 +90,8 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }
