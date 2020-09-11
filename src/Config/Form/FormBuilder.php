@@ -21,14 +21,14 @@ class FormBuilder extends AbstractFormBuilder
 
     use SrSearchPDBlockTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
-    const KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD = "show_global_search_personal_desktop";
-    const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_global_search_container_objects";
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD = "show_current_page_search_personal_desktop";
     const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS = "show_current_page_search_container_objects";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD = "show_current_page_search_personal_desktop";
     const KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR = "show_current_page_search_operator";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_global_search_container_objects";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD = "show_global_search_personal_desktop";
     const OPERATOR_AND = 1;
     const OPERATOR_OR = 2;
+    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
 
 
     /**

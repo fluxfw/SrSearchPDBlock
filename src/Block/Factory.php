@@ -27,6 +27,15 @@ final class Factory
 
 
     /**
+     * Factory constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -40,11 +49,13 @@ final class Factory
 
 
     /**
-     * Factory constructor
+     * @return CurrentPageSearchBlock
      */
-    private function __construct()
+    public function currentPageSearch() : CurrentPageSearchBlock
     {
+        $block = new CurrentPageSearchBlock();
 
+        return $block;
     }
 
 
@@ -54,17 +65,6 @@ final class Factory
     public function globalSearch() : GlobalSearchBlock
     {
         $block = new GlobalSearchBlock();
-
-        return $block;
-    }
-
-
-    /**
-     * @return CurrentPageSearchBlock
-     */
-    public function currentPageSearch() : CurrentPageSearchBlock
-    {
-        $block = new CurrentPageSearchBlock();
 
         return $block;
     }

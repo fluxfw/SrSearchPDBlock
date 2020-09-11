@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\DIC\SrSearchPDBlock\DevTools\DevToolsCtrl;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\Plugins\SrSearchPDBlock\Config\ConfigCtrl;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
@@ -10,6 +11,8 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  * Class ilSrSearchPDBlockConfigGUI
  *
  * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ *
+ * @ilCtrl_isCalledBy srag\DIC\SrSearchPDBlock\DevTools\DevToolsCtrl: ilSrSearchPDBlockConfigGUI
  */
 class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
 {
@@ -17,8 +20,8 @@ class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
     use DICTrait;
     use SrSearchPDBlockTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
     const CMD_CONFIGURE = "configure";
+    const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
 
 
     /**
@@ -44,6 +47,10 @@ class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
                 self::dic()->ctrl()->forwardCommand(new ConfigCtrl());
                 break;
 
+            case strtolower(DevToolsCtrl::class):
+                self::dic()->ctrl()->forwardCommand(new DevToolsCtrl($this, self::plugin()));
+                break;
+
             default:
                 $cmd = self::dic()->ctrl()->getCmd();
 
@@ -63,19 +70,21 @@ class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
     /**
      *
      */
-    protected function setTabs()/*: void*/
+    protected function configure()/*: void*/
     {
-        ConfigCtrl::addTabs();
-
-        self::dic()->locator()->addItem(ilSrSearchPDBlockPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
+        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
     }
 
 
     /**
      *
      */
-    protected function configure()/*: void*/
+    protected function setTabs()/*: void*/
     {
-        self::dic()->ctrl()->redirectByClass(ConfigCtrl::class, ConfigCtrl::CMD_CONFIGURE);
+        ConfigCtrl::addTabs();
+
+        DevToolsCtrl::addTabs(self::plugin());
+
+        self::dic()->locator()->addItem(ilSrSearchPDBlockPlugin::PLUGIN_NAME, self::dic()->ctrl()->getLinkTarget($this, self::CMD_CONFIGURE));
     }
 }
