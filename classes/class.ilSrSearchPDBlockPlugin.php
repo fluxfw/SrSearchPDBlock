@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
 use srag\CustomInputGUIs\SrSearchPDBlock\Loader\CustomInputGUIsLoaderDetector;
+use srag\DIC\SrSearchPDBlock\DevTools\DevToolsCtrl;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
@@ -75,6 +76,8 @@ class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
         parent::updateLanguages($a_lang_keys);
 
         $this->installRemovePluginDataConfirmLanguages();
+
+        DevToolsCtrl::installLanguages(self::plugin());
     }
 
 
