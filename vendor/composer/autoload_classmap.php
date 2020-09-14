@@ -83,6 +83,7 @@ return array(
     'srag\\DIC\\SrSearchPDBlock\\Database\\PdoStatementContextHelper' => $vendorDir . '/srag/dic/src/Database/PdoStatementContextHelper.php',
     'srag\\DIC\\SrSearchPDBlock\\DevTools\\DevToolsCtrl' => $vendorDir . '/srag/dic/src/DevTools/class.DevToolsCtrl.php',
     'srag\\DIC\\SrSearchPDBlock\\Exception\\DICException' => $vendorDir . '/srag/dic/src/Exception/DICException.php',
+    'srag\\DIC\\SrSearchPDBlock\\Ilias7PreWarn' => $vendorDir . '/srag/dic/src/Ilias7PreWarn.php',
     'srag\\DIC\\SrSearchPDBlock\\Loader\\AbstractLoaderDetector' => $vendorDir . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
     'srag\\DIC\\SrSearchPDBlock\\Output\\Output' => $vendorDir . '/srag/dic/src/Output/Output.php',
     'srag\\DIC\\SrSearchPDBlock\\Output\\OutputInterface' => $vendorDir . '/srag/dic/src/Output/OutputInterface.php',
