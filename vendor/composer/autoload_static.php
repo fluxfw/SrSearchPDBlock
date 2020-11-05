@@ -17,7 +17,8 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
             'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => 45,
             'srag\\Plugins\\SrSearchPDBlock\\' => 29,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DevTools\\' => 14,
+            'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => 47,
+            'srag\\DevTools\\SrSearchPDBlock\\' => 30,
             'srag\\DIC\\SrSearchPDBlock\\' => 25,
             'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 37,
             'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 40,
@@ -37,7 +38,11 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DevTools\\' => 
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
+        ),
+        'srag\\DevTools\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/devtools/src',
         ),
@@ -145,6 +150,9 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
         'srag\\DevTools\\SrSearchPDBlock\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/UpdatePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
         'srag\\LibrariesNamespaceChanger\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
