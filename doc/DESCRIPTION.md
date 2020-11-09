@@ -1,5 +1,3 @@
-# SrSearchPDBlock ILIAS Plugin Description
-
 This plugin adds two search blocks to dashboard or container objects:
 - Global search
 - Current page search
