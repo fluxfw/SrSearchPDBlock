@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\DIC\SrSearchPDBlock\Util;
+namespace srag\LibraryLanguageInstaller\SrSearchPDBlock;
 
 use ilDBConstants;
 use ilGlobalCache;
@@ -12,7 +12,7 @@ use srag\DIC\SrSearchPDBlock\Plugin\PluginInterface;
 /**
  * Class LibraryLanguageInstaller
  *
- * @package srag\DIC\SrSearchPDBlock\Util
+ * @package srag\LibraryLanguageInstaller\SrSearchPDBlock
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

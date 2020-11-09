@@ -4,7 +4,7 @@ namespace srag\RemovePluginDataConfirm\SrSearchPDBlock;
 
 use ilUIPluginRouterGUI;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\SrSearchPDBlock\LibraryLanguageInstaller;
 
 /**
  * Trait BasePluginUninstallTrait

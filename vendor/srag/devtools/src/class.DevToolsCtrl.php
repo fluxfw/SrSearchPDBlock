@@ -9,7 +9,7 @@ use ilPluginConfigGUI;
 use ilUtil;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\DIC\SrSearchPDBlock\Plugin\PluginInterface;
-use srag\DIC\SrSearchPDBlock\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\SrSearchPDBlock\LibraryLanguageInstaller;
 
 /**
  * Class DevToolsCtrl
