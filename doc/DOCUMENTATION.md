@@ -1,1 +1,0 @@
-# SrSearchPDBlock ILIAS Plugin Documentation
