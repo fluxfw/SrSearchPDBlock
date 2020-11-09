@@ -20,7 +20,7 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => 47,
             'srag\\DevTools\\SrSearchPDBlock\\' => 30,
-            'srag\\DIC\\' => 9,
+            'srag\\DIC\\SrSearchPDBlock\\' => 25,
             'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 37,
             'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 40,
         ),
@@ -51,7 +51,7 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         array (
             0 => __DIR__ . '/..' . '/srag/devtools/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\DIC\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
