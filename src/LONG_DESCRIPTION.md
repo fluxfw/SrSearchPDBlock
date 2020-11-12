@@ -4,6 +4,6 @@ This plugin adds two search blocks to dashboard or container objects:
 
 Each block can be activated or disabled individual
 
-![Config](./images/config.png)
+![Config](../doc/images/config.png)
 
-![Dashboard](./images/dashboard.png)
+![Dashboard](../doc/images/dashboard.png)
