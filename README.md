@@ -28,6 +28,7 @@ Update, activate and config the plugin in the ILIAS Plugin Administration
 ## Description
 
 This plugin adds two search blocks to dashboard or container objects:
+
 - Global search
 - Current page search
 
