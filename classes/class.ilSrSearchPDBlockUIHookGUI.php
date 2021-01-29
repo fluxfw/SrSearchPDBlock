@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../vendor/autoload.php";
+
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\Plugins\SrSearchPDBlock\Config\Form\FormBuilder;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
