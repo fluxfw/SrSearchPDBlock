@@ -1,7 +1,7 @@
 {
   "name": "srag/srsearchpdblock",
-  "description": "",
-  "version": "2.1.2",
+  "description": "Global search / Current page search",
+  "version": "3.0.0",
   "extra": {
     "ilias_plugin": {
       "id": "srsearchpd",

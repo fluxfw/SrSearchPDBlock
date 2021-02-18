@@ -20,8 +20,11 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
     const COMPONENT_CONTAINER = "Services/Container";
     const COMPONENT_DASHBOARD = "Services/Dashboard";
     const COMPONENT_PERSONAL_DESKTOP = "Services/PersonalDesktop";
+    const MAIN_MENU_TEMPLATE_ID = "Services/MainMenu/tpl.main_menu.html";
+    const META_BAR_TEMPLATE_ID = "src/UI/templates/default/MainControls/tpl.metabar.html";
     const PART_RIGHT_COLUMN = "right_column";
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
+    const TEMPLATE_GET = "template_get";
 
 
     /**
@@ -29,45 +32,27 @@ class ilSrSearchPDBlockUIHookGUI extends ilUIHookPluginGUI
      */
     public function getHTML(/*string*/ $a_comp, /*string*/ $a_part, $a_par = []) : array
     {
+        if (($a_par["tpl_id"] === self::META_BAR_TEMPLATE_ID || $a_par["tpl_id"] === self::MAIN_MENU_TEMPLATE_ID) && $a_part === self::TEMPLATE_GET) {
+            return [
+                "mode" => self::APPEND,
+                "html" => self::srSearchPDBlock()->search()->getSearches(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE, true)
+            ];
+        }
 
         if (($a_comp === self::COMPONENT_DASHBOARD || $a_comp === self::COMPONENT_PERSONAL_DESKTOP) && $a_part === self::PART_RIGHT_COLUMN) {
-
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD)
+                "html" => self::srSearchPDBlock()->search()->getSearches(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD)
             ];
         }
 
         if ($a_comp === self::COMPONENT_CONTAINER && $a_part === self::PART_RIGHT_COLUMN) {
-
             return [
                 "mode" => self::PREPEND,
-                "html" => $this->getBlocks(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
+                "html" => self::srSearchPDBlock()->search()->getSearches(FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS)
             ];
         }
 
         return parent::getHTML($a_comp, $a_part, $a_par);
-    }
-
-
-    /**
-     * @param string $key_config_global_search
-     * @param string $key_config_current_page_search
-     *
-     * @return string
-     */
-    protected function getBlocks(string $key_config_global_search, string $key_config_current_page_search) : string
-    {
-        $blocks = [];
-
-        if (self::srSearchPDBlock()->config()->getValue($key_config_global_search)) {
-            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->globalSearch();
-        }
-
-        if (self::srSearchPDBlock()->config()->getValue($key_config_current_page_search)) {
-            $blocks[] = self::srSearchPDBlock()->blocks()->factory()->currentPageSearch();
-        }
-
-        return self::output()->getHTML($blocks);
     }
 }

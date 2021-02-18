@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.0.0]
+- Search everywhere (Experimental)
+- Remove titles on blocks
+
 ## [2.1.2]
 - `Ilias7PreWarn`
 

@@ -4,9 +4,10 @@ namespace srag\Plugins\SrSearchPDBlock\Config\Form;
 
 use ilSrSearchPDBlockPlugin;
 use srag\CustomInputGUIs\SrSearchPDBlock\FormBuilder\AbstractFormBuilder;
-use srag\Plugins\SrSearchPDBlock\Block\CurrentPageSearchBlock;
-use srag\Plugins\SrSearchPDBlock\Block\GlobalSearchBlock;
 use srag\Plugins\SrSearchPDBlock\Config\ConfigCtrl;
+use srag\Plugins\SrSearchPDBlock\Search\BaseSearch;
+use srag\Plugins\SrSearchPDBlock\Search\CurrentPageSearch;
+use srag\Plugins\SrSearchPDBlock\Search\GlobalSearch;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -21,11 +22,13 @@ class FormBuilder extends AbstractFormBuilder
 
     use SrSearchPDBlockTrait;
 
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS = "show_current_page_search_container_objects";
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD = "show_current_page_search_personal_desktop";
-    const KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR = "show_current_page_search_operator";
-    const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_global_search_container_objects";
-    const KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD = "show_global_search_personal_desktop";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE = "show_" . CurrentPageSearch::TYPE . "_everywhere";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS = "show_" . CurrentPageSearch::TYPE . "_container_objects";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD = "show_" . CurrentPageSearch::TYPE . "_personal_desktop";
+    const KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR = "show_" . CurrentPageSearch::TYPE . "_operator";
+    const KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE = "show_" . GlobalSearch::TYPE . "_everywhere";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS = "show_" . GlobalSearch::TYPE . "_container_objects";
+    const KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD = "show_" . GlobalSearch::TYPE . "_personal_desktop";
     const OPERATOR_AND = 1;
     const OPERATOR_OR = 2;
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
@@ -61,11 +64,13 @@ class FormBuilder extends AbstractFormBuilder
     protected function getData() : array
     {
         $data = [
-            GlobalSearchBlock::LANG_MODULE      => [
+            GlobalSearch::TYPE      => [
+                self::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE           => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE),
                 self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD         => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD),
                 self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS)
             ],
-            CurrentPageSearchBlock::LANG_MODULE => [
+            CurrentPageSearch::TYPE => [
+                self::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE           => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE),
                 self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD         => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD),
                 self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS),
                 self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => self::srSearchPDBlock()->config()->getValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR)
@@ -82,11 +87,13 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            GlobalSearchBlock::LANG_MODULE      => self::dic()->ui()->factory()->input()->field()->section([
+            GlobalSearch::TYPE      => self::dic()->ui()->factory()->input()->field()->section([
+                self::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE           => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("everywhere", ConfigCtrl::LANG_MODULE)),
                 self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD         => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("dashboard", ConfigCtrl::LANG_MODULE)),
                 self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("container_objects", ConfigCtrl::LANG_MODULE))
-            ], self::plugin()->translate("title", GlobalSearchBlock::LANG_MODULE)),
-            CurrentPageSearchBlock::LANG_MODULE => self::dic()->ui()->factory()->input()->field()->section([
+            ], self::plugin()->translate(GlobalSearch::TYPE, BaseSearch::LANG_MODULE)),
+            CurrentPageSearch::TYPE => self::dic()->ui()->factory()->input()->field()->section([
+                self::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE           => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("everywhere", ConfigCtrl::LANG_MODULE)),
                 self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD         => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("dashboard", ConfigCtrl::LANG_MODULE)),
                 self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()
                     ->translate("container_objects", ConfigCtrl::LANG_MODULE)),
@@ -100,7 +107,7 @@ class FormBuilder extends AbstractFormBuilder
                     ->withRequired(true)
                     ->withOption(self::OPERATOR_AND, self::plugin()->translate("operator_and", ConfigCtrl::LANG_MODULE))
                     ->withOption(self::OPERATOR_OR, self::plugin()->translate("operator_or", ConfigCtrl::LANG_MODULE))
-            ], self::plugin()->translate("title", CurrentPageSearchBlock::LANG_MODULE))
+            ], self::plugin()->translate(CurrentPageSearch::TYPE, BaseSearch::LANG_MODULE))
         ];
 
         return $fields;
@@ -121,18 +128,24 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function storeData(array $data)/* : void*/
     {
-        self::srSearchPDBlock()->config()->setValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, boolval($data[GlobalSearchBlock::LANG_MODULE][self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD]));
         self::srSearchPDBlock()
             ->config()
-            ->setValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, boolval($data[GlobalSearchBlock::LANG_MODULE][self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS]));
+            ->setValue(self::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE, boolval($data[GlobalSearch::TYPE][self::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE]));
+        self::srSearchPDBlock()->config()->setValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD, boolval($data[GlobalSearch::TYPE][self::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD]));
         self::srSearchPDBlock()
             ->config()
-            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD, boolval($data[CurrentPageSearchBlock::LANG_MODULE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD]));
+            ->setValue(self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS, boolval($data[GlobalSearch::TYPE][self::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS]));
         self::srSearchPDBlock()
             ->config()
-            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS, boolval($data[CurrentPageSearchBlock::LANG_MODULE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS]));
+            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE, boolval($data[CurrentPageSearch::TYPE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE]));
         self::srSearchPDBlock()
             ->config()
-            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR, intval($data[CurrentPageSearchBlock::LANG_MODULE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR]));
+            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD, boolval($data[CurrentPageSearch::TYPE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD]));
+        self::srSearchPDBlock()
+            ->config()
+            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS, boolval($data[CurrentPageSearch::TYPE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS]));
+        self::srSearchPDBlock()
+            ->config()
+            ->setValue(self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR, intval($data[CurrentPageSearch::TYPE][self::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR]));
     }
 }

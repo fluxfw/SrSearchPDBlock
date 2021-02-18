@@ -1,40 +1,42 @@
 <?php
 
-namespace srag\Plugins\SrSearchPDBlock\Block;
+namespace srag\Plugins\SrSearchPDBlock\Search\Block;
 
 use ilBlockGUI;
 use ilSrSearchPDBlockPlugin;
-use srag\CustomInputGUIs\SrSearchPDBlock\Template\Template;
 use srag\DIC\SrSearchPDBlock\DICTrait;
+use srag\Plugins\SrSearchPDBlock\Search\BaseSearch;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
- * Class BaseSearchBlock
+ * Class SearchBlock
  *
- * @package srag\Plugins\SrSearchPDBlock\Block
+ * @package srag\Plugins\SrSearchPDBlock\Search\Block
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-abstract class BaseSearchBlock extends ilBlockGUI
+class  SearchBlock extends ilBlockGUI
 {
 
     use DICTrait;
     use SrSearchPDBlockTrait;
 
-    /**
-     * @var string
-     *
-     * @abstract
-     */
-    const LANG_MODULE = "";
     const PLUGIN_CLASS_NAME = ilSrSearchPDBlockPlugin::class;
+    /**
+     * @var BaseSearch
+     */
+    protected $search;
 
 
     /**
      * BaseSearchBlock constructor
+     *
+     * @param BaseSearch $search
      */
-    public function __construct()
+    public function __construct(BaseSearch $search)
     {
+        $this->search = $search;
+
         parent::__construct();
 
         $this->initBlock();
@@ -60,14 +62,6 @@ abstract class BaseSearchBlock extends ilBlockGUI
 
 
     /**
-     * @param Template $tpl
-     *
-     * @return Template
-     */
-    protected abstract function fillTemplate(Template $tpl) : Template;
-
-
-    /**
      * @inheritDoc
      */
     protected function getLegacyContent() : string
@@ -81,16 +75,7 @@ abstract class BaseSearchBlock extends ilBlockGUI
      */
     protected function getSearch() : string
     {
-        return self::output()->getHTML($this->fillTemplate($this->getTemplate()));
-    }
-
-
-    /**
-     * @return Template
-     */
-    protected function getTemplate() : Template
-    {
-        return self::plugin()->template(static::LANG_MODULE . ".html");
+        return self::output()->getHTML($this->search);
     }
 
 
@@ -99,10 +84,6 @@ abstract class BaseSearchBlock extends ilBlockGUI
      */
     protected function initBlock()/*: void*/
     {
-        self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/srsearchpdblock.css");
-
-        $this->setTitle(self::plugin()->translate("title", static::LANG_MODULE));
-
         if (self::version()->is6()) {
             $this->new_rendering = true;
         }
