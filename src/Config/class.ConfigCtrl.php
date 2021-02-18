@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrSearchPDBlock\Config;
 
+require_once __DIR__ . "/../../vendor/autoload.php";
+
 use ilSrSearchPDBlockPlugin;
 use ilUtil;
 use srag\DIC\SrSearchPDBlock\DICTrait;

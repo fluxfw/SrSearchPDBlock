@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\DIC\SrSearchPDBlock\DevTools\DevToolsCtrl;
+use srag\DevTools\SrSearchPDBlock\DevToolsCtrl;
 use srag\DIC\SrSearchPDBlock\DICTrait;
 use srag\Plugins\SrSearchPDBlock\Config\ConfigCtrl;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
@@ -12,7 +12,7 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\DIC\SrSearchPDBlock\DevTools\DevToolsCtrl: ilSrSearchPDBlockConfigGUI
+ * @ilCtrl_isCalledBy srag\DevTools\SrSearchPDBlock\DevToolsCtrl: ilSrSearchPDBlockConfigGUI
  */
 class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI
 {

@@ -4,8 +4,8 @@ namespace srag\Plugins\SrSearchPDBlock;
 
 use ilSrSearchPDBlockPlugin;
 use srag\DIC\SrSearchPDBlock\DICTrait;
-use srag\Plugins\SrSearchPDBlock\Block\Repository as BlocksRepository;
 use srag\Plugins\SrSearchPDBlock\Config\Repository as ConfigRepository;
+use srag\Plugins\SrSearchPDBlock\Search\Repository as SearchRepository;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -51,15 +51,6 @@ final class Repository
 
 
     /**
-     * @return BlocksRepository
-     */
-    public function blocks() : BlocksRepository
-    {
-        return BlocksRepository::getInstance();
-    }
-
-
-    /**
      * @return ConfigRepository
      */
     public function config() : ConfigRepository
@@ -73,8 +64,8 @@ final class Repository
      */
     public function dropTables()/*:void*/
     {
-        $this->blocks()->dropTables();
         $this->config()->dropTables();
+        $this->search()->dropTables();
     }
 
 
@@ -83,7 +74,16 @@ final class Repository
      */
     public function installTables()/*:void*/
     {
-        $this->blocks()->installTables();
         $this->config()->installTables();
+        $this->search()->installTables();
+    }
+
+
+    /**
+     * @return SearchRepository
+     */
+    public function search() : SearchRepository
+    {
+        return SearchRepository::getInstance();
     }
 }

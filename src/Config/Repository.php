@@ -67,8 +67,10 @@ final class Repository extends AbstractRepository
     protected function getFields() : array
     {
         return [
+            FormBuilder::KEY_SHOW_GLOBAL_SEARCH_EVERYWHERE                 => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_DASHBOARD               => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_GLOBAL_SEARCH_ON_CONTAINER_OBJECTS       => [Config::TYPE_BOOLEAN, false],
+            FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_EVERYWHERE           => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_DASHBOARD         => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_ON_CONTAINER_OBJECTS => [Config::TYPE_BOOLEAN, false],
             FormBuilder::KEY_SHOW_CURRENT_PAGE_SEARCH_OPERATOR             => [Config::TYPE_INTEGER, FormBuilder::OPERATOR_AND]

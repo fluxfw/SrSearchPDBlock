@@ -1,0 +1,30 @@
+.SrSearchPDBlock {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  form {
+	display: contents;
+  }
+
+  input {
+	float: none !important;
+	flex-grow: 1;
+	width: unset !important;
+  }
+}
+
+.SrSearchPDBlockEverywhere {
+  position: absolute;
+  top: 100%;
+
+  .SrSearchPDBlock {
+	margin-top: 2px;
+  }
+}
+
+div[id^="block_srsearchpd"] {
+  .ilBlockHeader {
+	display: none;
+  }
+}

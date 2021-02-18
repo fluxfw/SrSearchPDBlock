@@ -7,24 +7,26 @@ namespace Composer\Autoload;
 class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
 {
     public static $files = array (
-        'b56beb5c30b99b64e30ee9bbb5c3b0bc' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
-        '050f9f3c6b2b9d68ad0d5bc3dad953f1' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
+        '2148491ae5e8075e11f9368f78224189' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\' => 29,
+            'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => 45,
             'srag\\Plugins\\SrSearchPDBlock\\' => 29,
+            'srag\\LibraryLanguageInstaller\\SrSearchPDBlock\\' => 46,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\' => 9,
-            'srag\\CustomInputGUIs\\' => 21,
-            'srag\\ActiveRecordConfig\\' => 24,
+            'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => 47,
+            'srag\\DevTools\\SrSearchPDBlock\\' => 30,
+            'srag\\DIC\\SrSearchPDBlock\\' => 25,
+            'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 37,
+            'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 40,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\' => 
+        'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -32,19 +34,31 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'srag\\LibraryLanguageInstaller\\SrSearchPDBlock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src',
+        ),
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\' => 
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
+        ),
+        'srag\\DevTools\\SrSearchPDBlock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/devtools/src',
+        ),
+        'srag\\DIC\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\' => 
+        'srag\\ActiveRecordConfig\\SrSearchPDBlock\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
         ),
@@ -65,7 +79,7 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         'srag\\ActiveRecordConfig\\SrSearchPDBlock\\Config\\AbstractRepository' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/AbstractRepository.php',
         'srag\\ActiveRecordConfig\\SrSearchPDBlock\\Config\\Config' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/Config.php',
         'srag\\ActiveRecordConfig\\SrSearchPDBlock\\Exception\\ActiveRecordConfigException' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Exception/ActiveRecordConfigException.php',
-        'srag\\CustomInputGUIs\\SrSearchPDBlock\\CheckboxInputGUI\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
+        'srag\\CustomInputGUIs\\SrSearchPDBlock\\AjaxCheckbox\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\CheckboxInputGUI\\CheckboxInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\ColorPickerInputGUI\\ColorPickerInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ColorPickerInputGUI/ColorPickerInputGUI.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\CustomInputGUIs' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIs.php',
@@ -111,9 +125,10 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\TextInputGUI\\TextInputGUIWithModernAutoComplete' => __DIR__ . '/..' . '/srag/custominputguis/src/TextInputGUI/TextInputGUIWithModernAutoComplete.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\UIInputComponentWrapperInputGUI\\UIInputComponentWrapperInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/UIInputComponentWrapperInputGUI/UIInputComponentWrapperInputGUI.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\UIInputComponentWrapperInputGUI\\UIInputComponentWrapperNameSource' => __DIR__ . '/..' . '/srag/custominputguis/src/UIInputComponentWrapperInputGUI/UIInputComponentWrapperNameSource.php',
-        'srag\\CustomInputGUIs\\SrSearchPDBlock\\ViewControlModeUI\\ViewControlModeUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ViewControlModeGUI/ViewControlModeUI.php',
+        'srag\\CustomInputGUIs\\SrSearchPDBlock\\ViewControlModeUI\\ViewControlModeUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ViewControlModeUI/ViewControlModeUI.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\Waiter\\Waiter' => __DIR__ . '/..' . '/srag/custominputguis/src/Waiter/Waiter.php',
         'srag\\CustomInputGUIs\\SrSearchPDBlock\\WeekdayInputGUI\\WeekdayInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/WeekdayInputGUI/WeekdayInputGUI.php',
+        'srag\\DIC\\SrSearchPDBlock\\Cron\\FixUITemplateInCronContext' => __DIR__ . '/..' . '/srag/dic/src/Cron/FixUITemplateInCronContext.php',
         'srag\\DIC\\SrSearchPDBlock\\DICStatic' => __DIR__ . '/..' . '/srag/dic/src/DICStatic.php',
         'srag\\DIC\\SrSearchPDBlock\\DICStaticInterface' => __DIR__ . '/..' . '/srag/dic/src/DICStaticInterface.php',
         'srag\\DIC\\SrSearchPDBlock\\DICTrait' => __DIR__ . '/..' . '/srag/dic/src/DICTrait.php',
@@ -126,9 +141,7 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         'srag\\DIC\\SrSearchPDBlock\\Database\\DatabaseInterface' => __DIR__ . '/..' . '/srag/dic/src/Database/DatabaseInterface.php',
         'srag\\DIC\\SrSearchPDBlock\\Database\\PdoContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoContextHelper.php',
         'srag\\DIC\\SrSearchPDBlock\\Database\\PdoStatementContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoStatementContextHelper.php',
-        'srag\\DIC\\SrSearchPDBlock\\DevTools\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/dic/src/DevTools/class.DevToolsCtrl.php',
         'srag\\DIC\\SrSearchPDBlock\\Exception\\DICException' => __DIR__ . '/..' . '/srag/dic/src/Exception/DICException.php',
-        'srag\\DIC\\SrSearchPDBlock\\Ilias7PreWarn' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
         'srag\\DIC\\SrSearchPDBlock\\Loader\\AbstractLoaderDetector' => __DIR__ . '/..' . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
         'srag\\DIC\\SrSearchPDBlock\\Output\\Output' => __DIR__ . '/..' . '/srag/dic/src/Output/Output.php',
         'srag\\DIC\\SrSearchPDBlock\\Output\\OutputInterface' => __DIR__ . '/..' . '/srag/dic/src/Output/OutputInterface.php',
@@ -136,25 +149,28 @@ class ComposerStaticInitb8916d35c4922de73fafc0f5cdc54ef2
         'srag\\DIC\\SrSearchPDBlock\\Plugin\\Plugin' => __DIR__ . '/..' . '/srag/dic/src/Plugin/Plugin.php',
         'srag\\DIC\\SrSearchPDBlock\\Plugin\\PluginInterface' => __DIR__ . '/..' . '/srag/dic/src/Plugin/PluginInterface.php',
         'srag\\DIC\\SrSearchPDBlock\\Plugin\\Pluginable' => __DIR__ . '/..' . '/srag/dic/src/Plugin/Pluginable.php',
-        'srag\\DIC\\SrSearchPDBlock\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrSearchPDBlock\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
-        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
+        'srag\\DevTools\\SrSearchPDBlock\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
+        'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
-        'srag\\LibrariesNamespaceChanger\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/UpdatePluginReadme.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Block\\BaseSearchBlock' => __DIR__ . '/../..' . '/src/Block/BaseSearchBlock.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Block\\CurrentPageSearchBlock' => __DIR__ . '/../..' . '/src/Block/CurrentPageSearchBlock.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Block\\Factory' => __DIR__ . '/../..' . '/src/Block/Factory.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Block\\GlobalSearchBlock' => __DIR__ . '/../..' . '/src/Block/GlobalSearchBlock.php',
-        'srag\\Plugins\\SrSearchPDBlock\\Block\\Repository' => __DIR__ . '/../..' . '/src/Block/Repository.php',
+        'srag\\LibraryLanguageInstaller\\SrSearchPDBlock\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src/LibraryLanguageInstaller.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\ConfigCtrl' => __DIR__ . '/../..' . '/src/Config/class.ConfigCtrl.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\Factory' => __DIR__ . '/../..' . '/src/Config/Factory.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/Config/Form/FormBuilder.php',
         'srag\\Plugins\\SrSearchPDBlock\\Config\\Repository' => __DIR__ . '/../..' . '/src/Config/Repository.php',
         'srag\\Plugins\\SrSearchPDBlock\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\BaseSearch' => __DIR__ . '/../..' . '/src/Search/BaseSearch.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\Block\\SearchBlock' => __DIR__ . '/../..' . '/src/Search/Block/SearchBlock.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\CurrentPageSearch' => __DIR__ . '/../..' . '/src/Search/CurrentPageSearch.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\Everywhere\\EverywhereSearch' => __DIR__ . '/../..' . '/src/Search/Everywhere/EverywhereSearch.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\Factory' => __DIR__ . '/../..' . '/src/Search/Factory.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\GlobalSearch' => __DIR__ . '/../..' . '/src/Search/GlobalSearch.php',
+        'srag\\Plugins\\SrSearchPDBlock\\Search\\Repository' => __DIR__ . '/../..' . '/src/Search/Repository.php',
         'srag\\Plugins\\SrSearchPDBlock\\Utils\\SrSearchPDBlockTrait' => __DIR__ . '/../..' . '/src/Utils/SrSearchPDBlockTrait.php',
         'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
         'srag\\RemovePluginDataConfirm\\SrSearchPDBlock\\PluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/PluginUninstallTrait.php',

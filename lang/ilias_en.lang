@@ -2,12 +2,11 @@ config_configuration#:#Configuration
 config_configuration_saved#:#Configuration saved
 config_container_objects#:#Container objects
 config_dashboard#:#Dashboard
+config_everywhere#:#Everywhere (Experimental)
 config_operator#:#Operator
 config_operator_and#:#AND
 config_operator_or#:#OR
 config_save#:#Save
-current_page_search_placeholder#:#Search ...
-current_page_search_title#:#Search current page
-global_search_go#:#Go
-global_search_placeholder#:#Search ...
-global_search_title#:#Search global
+search_current_page_search#:#Search current page
+search_global_search#:#Search global
+search_go#:#Go

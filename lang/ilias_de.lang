@@ -2,12 +2,11 @@ config_configuration#:#Konfiguration
 config_configuration_saved#:#Konfiguration gespeichert
 config_container_objects#:#Containerobjekte
 config_dashboard#:#Dashboard
+config_everywhere#:#Überall (Experimentell)
 config_operator#:#Operator
 config_operator_and#:#UND
 config_operator_or#:#ODER
 config_save#:#Speichern
-current_page_search_placeholder#:#Suche ...
-current_page_search_title#:#Aktuelle Seite durchsuchen
-global_search_go#:#Los
-global_search_placeholder#:#Suche ...
-global_search_title#:#Global durchsuchen
+search_current_page_search#:#Aktuelle Seite durchsuchen
+search_global_search#:#Global durchsuchen
+search_go#:#Los
