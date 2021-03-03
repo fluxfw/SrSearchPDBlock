@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.1]
+- Update project url
+
 ## [3.0.0]
 - Search everywhere (Experimental)
 - Remove titles on blocks
