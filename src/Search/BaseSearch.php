@@ -4,6 +4,7 @@ namespace srag\Plugins\SrSearchPDBlock\Search;
 
 use ilSrSearchPDBlockPlugin;
 use srag\DIC\SrSearchPDBlock\DICTrait;
+use srag\DIC\SrSearchPDBlock\Version\PluginVersionParameter;
 use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 
 /**
@@ -50,9 +51,12 @@ abstract class BaseSearch
         if (!self::$init) {
             self::$init = true;
 
-            self::dic()->ui()->mainTemplate()->addCss(self::plugin()->directory() . "/css/SrSearchPDBlock.css");
+            $version_parameter = PluginVersionParameter::getInstance()->withPlugin(self::plugin());
 
-            self::dic()->ui()->mainTemplate()->addJavaScript(self::plugin()->directory() . "/js/SrSearchPDBlock.min.js");
+            self::dic()->ui()->mainTemplate()->addCss($version_parameter->appendToUrl(self::plugin()->directory() . "/css/SrSearchPDBlock.css"));
+
+            self::dic()->ui()->mainTemplate()->addJavaScript($version_parameter->appendToUrl(self::plugin()->directory() . "/js/SrSearchPDBlock.min.js",
+                self::plugin()->directory() . "/js/SrSearchPDBlock.js"));
         }
 
         $tpl = self::plugin()->template("SrSearchPDBlock.html");
