@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.3]
+- Ignore not supported languages
+
 ## [3.0.2]
 - Update readme
 
