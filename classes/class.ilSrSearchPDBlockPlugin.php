@@ -10,8 +10,6 @@ use srag\RemovePluginDataConfirm\SrSearchPDBlock\PluginUninstallTrait;
 
 /**
  * Class ilSrSearchPDBlockPlugin
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ilSrSearchPDBlockPlugin extends ilUserInterfaceHookPlugin
 {

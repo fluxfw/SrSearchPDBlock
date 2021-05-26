@@ -10,8 +10,6 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  * Class Repository
  *
  * @package srag\Plugins\SrSearchPDBlock\Search
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Repository
 {

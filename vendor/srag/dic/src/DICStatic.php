@@ -19,8 +19,6 @@ use srag\DIC\SrSearchPDBlock\Version\VersionInterface;
  * Class DICStatic
  *
  * @package srag\DIC\SrSearchPDBlock
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class DICStatic implements DICStaticInterface
 {

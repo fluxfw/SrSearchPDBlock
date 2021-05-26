@@ -14,8 +14,6 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  * Class FormBuilder
  *
  * @package srag\Plugins\SrSearchPDBlock\Config\Form
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class FormBuilder extends AbstractFormBuilder
 {
