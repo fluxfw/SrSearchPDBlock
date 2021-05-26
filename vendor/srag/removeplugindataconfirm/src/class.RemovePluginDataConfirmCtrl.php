@@ -17,8 +17,6 @@ use srag\DIC\SrSearchPDBlock\DICTrait;
  *
  * @package           srag\RemovePluginDataConfirm\SrSearchPDBlock
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\RemovePluginDataConfirm\SrSearchPDBlock\RemovePluginDataConfirmCtrl: ilUIPluginRouterGUI
  */
 class RemovePluginDataConfirmCtrl

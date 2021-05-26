@@ -10,8 +10,6 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
 /**
  * Class ilSrSearchPDBlockConfigGUI
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\DevTools\SrSearchPDBlock\DevToolsCtrl: ilSrSearchPDBlockConfigGUI
  */
 class ilSrSearchPDBlockConfigGUI extends ilPluginConfigGUI

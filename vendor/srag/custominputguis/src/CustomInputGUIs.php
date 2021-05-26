@@ -9,8 +9,6 @@ use srag\DIC\SrSearchPDBlock\DICTrait;
  * Class CustomInputGUIs
  *
  * @package srag\CustomInputGUIs\SrSearchPDBlock
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class CustomInputGUIs
 {

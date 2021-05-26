@@ -8,8 +8,6 @@ use srag\Plugins\SrSearchPDBlock\Config\Form\FormBuilder;
  * Class CurrentPageSearch
  *
  * @package srag\Plugins\SrSearchPDBlock\Search
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class CurrentPageSearch extends BaseSearch
 {

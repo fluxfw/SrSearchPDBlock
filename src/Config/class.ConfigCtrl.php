@@ -14,8 +14,6 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  *
  * @package           srag\Plugins\SrSearchPDBlock\Config
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrSearchPDBlock\Config\ConfigCtrl: ilSrSearchPDBlockConfigGUI
  */
 class ConfigCtrl

@@ -11,8 +11,6 @@ use srag\Plugins\SrSearchPDBlock\Utils\SrSearchPDBlockTrait;
  * Class Factory
  *
  * @package srag\Plugins\SrSearchPDBlock\Config
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Factory extends AbstractFactory
 {

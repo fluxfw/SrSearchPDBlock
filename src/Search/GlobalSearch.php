@@ -8,8 +8,6 @@ use ilSearchController;
  * Class GlobalSearch
  *
  * @package srag\Plugins\SrSearchPDBlock\Search
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class GlobalSearch extends BaseSearch
 {
