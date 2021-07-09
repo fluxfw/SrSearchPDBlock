@@ -44,7 +44,7 @@ class  SearchBlock extends ilBlockGUI
     /**
      * @inheritDoc
      */
-    public function fillDataSection()/*: void*/
+    public function fillDataSection() : void
     {
         $this->setDataSection($this->getSearch());
     }
@@ -80,7 +80,7 @@ class  SearchBlock extends ilBlockGUI
     /**
      *
      */
-    protected function initBlock()/*: void*/
+    protected function initBlock() : void
     {
         $this->new_rendering = true;
     }

@@ -2,6 +2,7 @@
 
 ## [3.1.0]
 - Remove ILIAS 5.4 support
+- Min PHP 7.2
 
 ## [3.0.5]
 - Change utils url
