@@ -82,9 +82,7 @@ class  SearchBlock extends ilBlockGUI
      */
     protected function initBlock()/*: void*/
     {
-        if (self::version()->is6()) {
-            $this->new_rendering = true;
-        }
+        $this->new_rendering = true;
     }
 
 
