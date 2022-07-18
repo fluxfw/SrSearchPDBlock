@@ -10,7 +10,6 @@ return array(
     'srag\\Plugins\\SrSearchPDBlock\\' => array($baseDir . '/src'),
     'srag\\LibraryLanguageInstaller\\SrSearchPDBlock\\' => array($vendorDir . '/srag/librarylanguageinstaller/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\GeneratePluginInfosHelper\\SrSearchPDBlock\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
     'srag\\DevTools\\SrSearchPDBlock\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DIC\\SrSearchPDBlock\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrSearchPDBlock\\' => array($vendorDir . '/srag/custominputguis/src'),
